@@ -106,48 +106,24 @@
         Installer powered by <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>.
     </div>
     <script>
-      document.querySelector('select[name="type"]').addEventListener("change", () => {
-          const button = document.querySelector('esp-web-install-button');
-          button.manifest = './manifest.php?t='
-                          + document.querySelector('select[name="type"]').value + '&v='
-                          + document.querySelector('select[name="version"]').value + '&u='
-                          + document.querySelector('select[name="update"]').value;
-          if ((document.querySelector('select[name="type"]').value !== "")
-           && (document.querySelector('select[name="version"]').value !== "")) {
-            button.classList.remove('invisible');
-          } else {
-            button.classList.add('invisible');
-          }
+      function getSelectElem(name) {
+        return document.querySelector(`select[name=${name}]`);
+      }
+      function getManifestUrl() {
+        return `./manifest.php?t=${getSelect('type').value}&v=${getSelect('version').value}&u=${getSelect('update').value}`;
+      }
+      function onSelectionChanged() {
+        const button = document.querySelector('esp-web-install-button');
+        button.manifest = getManifestUrl();
+        if (getSelectElem('type').value !== '' && getSelectElem('version').value !== '') {
+          button.classList.remove('invisible');
+        } else {
+          button.classList.add('invisible');
         }
-      );
-      document.querySelector('select[name="version"]').addEventListener("change", () => {
-          const button = document.querySelector('esp-web-install-button');
-          button.manifest = './manifest.php?t='
-                          + document.querySelector('select[name="type"]').value + '&v='
-                          + document.querySelector('select[name="version"]').value + '&u='
-                          + document.querySelector('select[name="update"]').value;
-          if ((document.querySelector('select[name="type"]').value !== "")
-           && (document.querySelector('select[name="version"]').value !== "")) {
-            button.classList.remove('invisible');
-          } else {
-            button.classList.add('invisible');
-          }
-        }
-      );
-      document.querySelector('select[name="update"]').addEventListener("change", () => {
-          const button = document.querySelector('esp-web-install-button');
-          button.manifest = './manifest.php?t='
-                          + document.querySelector('select[name="type"]').value + '&v='
-                          + document.querySelector('select[name="version"]').value + '&u='
-                          + document.querySelector('select[name="update"]').value;
-          if ((document.querySelector('select[name="type"]').value !== "")
-           && (document.querySelector('select[name="version"]').value !== "")) {
-            button.classList.remove('invisible');
-          } else {
-            button.classList.add('invisible');
-          }
-        }
-      );
+      }
+      getSelectElem('type').addEventListener('change', onSelectionChanged);
+      getSelectElem('version').addEventListener('change', onSelectionChanged);
+      getSelectElem('update').addEventListener('change', onSelectionChanged);
     </script>
   </body>
 </html>
