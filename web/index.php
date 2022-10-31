@@ -40,7 +40,7 @@ $client            = new \Github\Client();
 
 $client->addCache($pool);
 
-$releases = $client->api('repo')->releases()->all('meshtastic', 'Meshtastic-device');
+$releases = $client->api('repo')->releases()->all('meshtastic', 'firmware');
 
 foreach ($releases as $release){
     foreach($release['assets'] as $asset){

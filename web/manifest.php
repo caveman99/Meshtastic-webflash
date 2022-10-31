@@ -3,7 +3,7 @@ header("content-type: application/json");
 
 $t=filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
 $v=filter_input(INPUT_GET, 'v', FILTER_SANITIZE_STRING);
-$u=filter_input(INPUT_GET, 'u', FILTER_SANITIZE_INTEGER);
+$u=filter_input(INPUT_GET, 'u', FILTER_SANITIZE_NUMBER_INT);
 $v2=substr($v,1);
 
 // Only include the LittleFS bin if the device should be wiped ($u=2)
