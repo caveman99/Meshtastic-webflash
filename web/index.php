@@ -44,7 +44,7 @@ $releases = $client->api('repo')->releases()->all('meshtastic', 'firmware');
 
 foreach ($releases as $release){
     foreach($release['assets'] as $asset){
-        if (strpos($asset['browser_download_url'], '/firmware-1.3')){
+        if (strpos($asset['browser_download_url'],'/firmware-1.3') || strpos($asset['browser_download_url'],'/firmware-2')){
             $display[$release['tag_name']] = $release;
             $versions[$release['tag_name']] = $release['tag_name'];
             if (!file_exists(__DIR__  . '/firmware/' . $asset['name'])){
