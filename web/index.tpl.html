@@ -110,7 +110,7 @@
         return document.querySelector(`select[name=${name}]`);
       }
       function getManifestUrl() {
-        return `./manifest.php?t=${getSelect('type').value}&v=${getSelect('version').value}&u=${getSelect('update').value}`;
+        return `./manifest.php?t=${getSelectElem('type').value}&v=${getSelectElem('version').value}&u=${getSelectElem('update').value}`;
       }
       function onSelectionChanged() {
         const button = document.querySelector('esp-web-install-button');
