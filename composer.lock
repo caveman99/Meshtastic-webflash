@@ -269,16 +269,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v3.21.8",
+            "version": "v3.21.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "6377c52338fd18634dddf6becfde94b8b16cd9f5"
+                "reference": "1bf02c57f260c5eea5e75a35c1a943fe943a188a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/6377c52338fd18634dddf6becfde94b8b16cd9f5",
-                "reference": "6377c52338fd18634dddf6becfde94b8b16cd9f5",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/1bf02c57f260c5eea5e75a35c1a943fe943a188a",
+                "reference": "1bf02c57f260c5eea5e75a35c1a943fe943a188a",
                 "shasum": ""
             },
             "require": {
@@ -307,9 +307,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.21.8"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.21.9"
             },
-            "time": "2022-10-18T18:22:00+00:00"
+            "time": "2022-10-26T20:30:45+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2109,5 +2109,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
