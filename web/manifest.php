@@ -58,7 +58,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
       }
     ]
   }';
-}else{
+} else {
   // update with new-old buggy layout (prior to 2.0.6)
   echo '{
     "name": "' . $t . '",
