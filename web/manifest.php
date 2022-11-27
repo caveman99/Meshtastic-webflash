@@ -14,6 +14,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
       "name": "' . $t . '",
       "version": "' . $v . '",
       "new_install_improv_wait_time": 0,
+      "new_install_prompt_erase": true,
       "builds": [
         {
           "chipFamily": "ESP32",
@@ -49,6 +50,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
     "name": "' . $t . '",
     "version": "' . $v . '",
     "new_install_improv_wait_time": 0,
+    "new_install_prompt_erase": true,
     "builds": [
       {
         "chipFamily": "ESP32",
@@ -64,6 +66,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
     "name": "' . $t . '",
     "version": "' . $v . '",
     "new_install_improv_wait_time": 0,
+    "new_install_prompt_erase": true,
     "builds": [
       {
         "chipFamily": "ESP32",
