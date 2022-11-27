@@ -60,6 +60,17 @@ foreach ($releases as $release){
     }
 }
 
+// iterate firmware dir and erase folders that are not in the releases
+$files = scandir(__DIR__  . '/firmware/');
+foreach ($files as $file){
+    if (is_dir(__DIR__  . '/firmware/' . $file) && !array_key_exists($file, $versions)){
+        exec('rm -rf ' . __DIR__  . '/firmware/' . $file);
+    }
+    if (is_file(__DIR__  . '/firmware/firmware-' . substr($file,1) . '.zip') && !array_key_exists($file, $versions)){
+        unlink(__DIR__  . '/firmware/firmware-' . substr($file,1) . '.zip');
+    }
+}
+
 rsort($versions);
 
 foreach ($versions as $version){
