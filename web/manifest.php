@@ -6,6 +6,8 @@ $v=filter_input(INPUT_GET, 'v', FILTER_SANITIZE_STRING);
 $u=filter_input(INPUT_GET, 'u', FILTER_SANITIZE_NUMBER_INT);
 $v2=substr($v,1);
 
+require_once realpath(__DIR__ . '/..') . '/config.php';
+
 // Only include the LittleFS bin if the device should be wiped ($u=2)
 
 if (file_exists('firmware/' . $v . '/system-info.bin')) {
@@ -17,7 +19,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
       "new_install_prompt_erase": true,
       "builds": [
         {
-          "chipFamily": "ESP32",
+          "chipFamily": "' . $chipFamily[$t] . '",
           "parts": [
             { "path": "firmware/' . $v . '/system-info.bin", "offset": 4096 },
             { "path": "firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin", "offset": 65536 }' . (($u == 2) ? ',
@@ -35,7 +37,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
     "new_install_improv_wait_time": 0,
     "builds": [
       {
-        "chipFamily": "ESP32",
+        "chipFamily": "' . $chipFamily[$t] . '",
         "parts": [
           { "path": "firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin", "offset": 0 },
           { "path": "firmware/' . $v . '/bleota.bin", "offset": 2490368 },
@@ -53,7 +55,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
     "new_install_prompt_erase": true,
     "builds": [
       {
-        "chipFamily": "ESP32",
+        "chipFamily": "' . $chipFamily[$t] . '",
         "parts": [
           { "path": "firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '-update.bin", "offset": 65536 }
         ]
@@ -69,7 +71,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
     "new_install_prompt_erase": true,
     "builds": [
       {
-        "chipFamily": "ESP32",
+        "chipFamily": "' . $chipFamily[$t] . '",
         "parts": [
           { "path": "firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin", "offset": 0 }
         ]
