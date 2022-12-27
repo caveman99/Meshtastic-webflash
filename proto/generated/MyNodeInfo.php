@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Unique local debugging info for this node
  * Note: we don't include position or the user info, because that will come in the
  * Sent to the phone in response to WantNodes.
@@ -17,37 +16,32 @@ use Google\Protobuf\Internal\GPBUtil;
 class MyNodeInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Tells the phone what our node number is, default starting value is
      * lowbyte of macaddr, but it will be fixed if that is already in use
      *
      * Generated from protobuf field <code>uint32 my_node_num = 1;</code>
      */
-    private $my_node_num = 0;
+    protected $my_node_num = 0;
     /**
-     *
      * Note: This flag merely means we detected a hardware GPS in our node.
      * Not the same as UserPreferences.location_sharing
      *
      * Generated from protobuf field <code>bool has_gps = 2;</code>
      */
-    private $has_gps = false;
+    protected $has_gps = false;
     /**
-     *
      * The maximum number of 'software' channels that can be set on this node.
      *
      * Generated from protobuf field <code>uint32 max_channels = 3;</code>
      */
-    private $max_channels = 0;
+    protected $max_channels = 0;
     /**
-     *
      * 0.0.5 etc...
      *
      * Generated from protobuf field <code>string firmware_version = 4;</code>
      */
-    private $firmware_version = '';
+    protected $firmware_version = '';
     /**
-     *
      * An error message we'd like to report back to the mothership through analytics.
      * It indicates a serious bug occurred on the device, the device coped with it,
      * but we still want to tell the devs about the bug.
@@ -57,39 +51,34 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.CriticalErrorCode error_code = 5;</code>
      */
-    private $error_code = 0;
+    protected $error_code = 0;
     /**
-     *
      * A numeric error address (nonzero if available)
      *
      * Generated from protobuf field <code>uint32 error_address = 6;</code>
      */
-    private $error_address = 0;
+    protected $error_address = 0;
     /**
-     *
      * The total number of errors this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
      * Generated from protobuf field <code>uint32 error_count = 7;</code>
      */
-    private $error_count = 0;
+    protected $error_count = 0;
     /**
-     *
      * The total number of reboots this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
      * Generated from protobuf field <code>uint32 reboot_count = 8;</code>
      */
-    private $reboot_count = 0;
+    protected $reboot_count = 0;
     /**
-     *
      * Calculated bitrate of the current channel (in Bytes Per Second)
      *
      * Generated from protobuf field <code>float bitrate = 9;</code>
      */
-    private $bitrate = 0.0;
+    protected $bitrate = 0.0;
     /**
-     *
      * How long before we consider a message abandoned and we can clear our
      * caches of any messages in flight Normally quite large to handle the worst case
      * message delivery time, 5 minutes.
@@ -97,58 +86,104 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 message_timeout_msec = 10;</code>
      */
-    private $message_timeout_msec = 0;
+    protected $message_timeout_msec = 0;
     /**
-     *
      * The minimum app version that can talk to this device.
      * Phone/PC apps should compare this to their build number and if too low tell the user they must update their app
      *
      * Generated from protobuf field <code>uint32 min_app_version = 11;</code>
      */
-    private $min_app_version = 0;
+    protected $min_app_version = 0;
     /**
-     *
      * 24 time windows of 1hr each with the airtime transmitted out of the device per hour.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_tx = 12;</code>
      */
     private $air_period_tx;
     /**
-     *
      * 24 time windows of 1hr each with the airtime of valid packets for your mesh.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_rx = 13;</code>
      */
     private $air_period_rx;
     /**
-     *
      * Is the device wifi capable?
      *
      * Generated from protobuf field <code>bool has_wifi = 14;</code>
      */
-    private $has_wifi = false;
+    protected $has_wifi = false;
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 15;</code>
      */
-    private $channel_utilization = 0.0;
+    protected $channel_utilization = 0.0;
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 16;</code>
      */
-    private $air_util_tx = 0.0;
+    protected $air_util_tx = 0.0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $my_node_num
+     *           Tells the phone what our node number is, default starting value is
+     *           lowbyte of macaddr, but it will be fixed if that is already in use
+     *     @type bool $has_gps
+     *           Note: This flag merely means we detected a hardware GPS in our node.
+     *           Not the same as UserPreferences.location_sharing
+     *     @type int $max_channels
+     *           The maximum number of 'software' channels that can be set on this node.
+     *     @type string $firmware_version
+     *           0.0.5 etc...
+     *     @type int $error_code
+     *           An error message we'd like to report back to the mothership through analytics.
+     *           It indicates a serious bug occurred on the device, the device coped with it,
+     *           but we still want to tell the devs about the bug.
+     *           This field will be cleared after the phone reads MyNodeInfo
+     *           (i.e. it will only be reported once)
+     *           a numeric error code to go with error message, zero means no error
+     *     @type int $error_address
+     *           A numeric error address (nonzero if available)
+     *     @type int $error_count
+     *           The total number of errors this node has ever encountered
+     *           (well - since the last time we discarded preferences)
+     *     @type int $reboot_count
+     *           The total number of reboots this node has ever encountered
+     *           (well - since the last time we discarded preferences)
+     *     @type float $bitrate
+     *           Calculated bitrate of the current channel (in Bytes Per Second)
+     *     @type int $message_timeout_msec
+     *           How long before we consider a message abandoned and we can clear our
+     *           caches of any messages in flight Normally quite large to handle the worst case
+     *           message delivery time, 5 minutes.
+     *           Formerly called FLOOD_EXPIRE_TIME in the device code
+     *     @type int $min_app_version
+     *           The minimum app version that can talk to this device.
+     *           Phone/PC apps should compare this to their build number and if too low tell the user they must update their app
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $air_period_tx
+     *           24 time windows of 1hr each with the airtime transmitted out of the device per hour.
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $air_period_rx
+     *           24 time windows of 1hr each with the airtime of valid packets for your mesh.
+     *     @type bool $has_wifi
+     *           Is the device wifi capable?
+     *     @type float $channel_utilization
+     *           Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+     *     @type float $air_util_tx
+     *           Percent of airtime for transmission used within the last hour.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Tells the phone what our node number is, default starting value is
      * lowbyte of macaddr, but it will be fixed if that is already in use
      *
@@ -161,7 +196,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Tells the phone what our node number is, default starting value is
      * lowbyte of macaddr, but it will be fixed if that is already in use
      *
@@ -178,7 +212,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Note: This flag merely means we detected a hardware GPS in our node.
      * Not the same as UserPreferences.location_sharing
      *
@@ -191,7 +224,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Note: This flag merely means we detected a hardware GPS in our node.
      * Not the same as UserPreferences.location_sharing
      *
@@ -208,7 +240,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The maximum number of 'software' channels that can be set on this node.
      *
      * Generated from protobuf field <code>uint32 max_channels = 3;</code>
@@ -220,7 +251,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The maximum number of 'software' channels that can be set on this node.
      *
      * Generated from protobuf field <code>uint32 max_channels = 3;</code>
@@ -236,7 +266,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 0.0.5 etc...
      *
      * Generated from protobuf field <code>string firmware_version = 4;</code>
@@ -248,7 +277,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 0.0.5 etc...
      *
      * Generated from protobuf field <code>string firmware_version = 4;</code>
@@ -264,7 +292,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * An error message we'd like to report back to the mothership through analytics.
      * It indicates a serious bug occurred on the device, the device coped with it,
      * but we still want to tell the devs about the bug.
@@ -281,7 +308,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * An error message we'd like to report back to the mothership through analytics.
      * It indicates a serious bug occurred on the device, the device coped with it,
      * but we still want to tell the devs about the bug.
@@ -302,7 +328,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A numeric error address (nonzero if available)
      *
      * Generated from protobuf field <code>uint32 error_address = 6;</code>
@@ -314,7 +339,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A numeric error address (nonzero if available)
      *
      * Generated from protobuf field <code>uint32 error_address = 6;</code>
@@ -330,7 +354,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The total number of errors this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
@@ -343,7 +366,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The total number of errors this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
@@ -360,7 +382,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The total number of reboots this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
@@ -373,7 +394,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The total number of reboots this node has ever encountered
      * (well - since the last time we discarded preferences)
      *
@@ -390,7 +410,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Calculated bitrate of the current channel (in Bytes Per Second)
      *
      * Generated from protobuf field <code>float bitrate = 9;</code>
@@ -402,7 +421,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Calculated bitrate of the current channel (in Bytes Per Second)
      *
      * Generated from protobuf field <code>float bitrate = 9;</code>
@@ -418,7 +436,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * How long before we consider a message abandoned and we can clear our
      * caches of any messages in flight Normally quite large to handle the worst case
      * message delivery time, 5 minutes.
@@ -433,7 +450,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * How long before we consider a message abandoned and we can clear our
      * caches of any messages in flight Normally quite large to handle the worst case
      * message delivery time, 5 minutes.
@@ -452,7 +468,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The minimum app version that can talk to this device.
      * Phone/PC apps should compare this to their build number and if too low tell the user they must update their app
      *
@@ -465,7 +480,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The minimum app version that can talk to this device.
      * Phone/PC apps should compare this to their build number and if too low tell the user they must update their app
      *
@@ -482,7 +496,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 24 time windows of 1hr each with the airtime transmitted out of the device per hour.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_tx = 12;</code>
@@ -494,11 +507,10 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 24 time windows of 1hr each with the airtime transmitted out of the device per hour.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_tx = 12;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setAirPeriodTx($var)
@@ -510,7 +522,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 24 time windows of 1hr each with the airtime of valid packets for your mesh.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_rx = 13;</code>
@@ -522,11 +533,10 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 24 time windows of 1hr each with the airtime of valid packets for your mesh.
      *
      * Generated from protobuf field <code>repeated uint32 air_period_rx = 13;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setAirPeriodRx($var)
@@ -538,7 +548,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Is the device wifi capable?
      *
      * Generated from protobuf field <code>bool has_wifi = 14;</code>
@@ -550,7 +559,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Is the device wifi capable?
      *
      * Generated from protobuf field <code>bool has_wifi = 14;</code>
@@ -566,7 +574,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 15;</code>
@@ -578,7 +585,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 15;</code>
@@ -594,7 +600,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 16;</code>
@@ -606,7 +611,6 @@ class MyNodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 16;</code>

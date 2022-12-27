@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * The on-disk saved channels
  *
  * Generated from protobuf message <code>ChannelFile</code>
@@ -15,29 +14,40 @@ use Google\Protobuf\Internal\GPBUtil;
 class ChannelFile extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The channels our node knows about
      *
      * Generated from protobuf field <code>repeated .Channel channels = 1;</code>
      */
     private $channels;
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
      *
      * Generated from protobuf field <code>uint32 version = 2;</code>
      */
-    private $version = 0;
+    protected $version = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type array<\Channel>|\Google\Protobuf\Internal\RepeatedField $channels
+     *           The channels our node knows about
+     *     @type int $version
+     *           A version integer used to invalidate old save files when we make
+     *           incompatible changes This integer is set at build time and is private to
+     *           NodeDB.cpp in the device code.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Deviceonly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The channels our node knows about
      *
      * Generated from protobuf field <code>repeated .Channel channels = 1;</code>
@@ -49,11 +59,10 @@ class ChannelFile extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The channels our node knows about
      *
      * Generated from protobuf field <code>repeated .Channel channels = 1;</code>
-     * @param \Channel[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<\Channel>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setChannels($var)
@@ -65,7 +74,6 @@ class ChannelFile extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
@@ -79,7 +87,6 @@ class ChannelFile extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.

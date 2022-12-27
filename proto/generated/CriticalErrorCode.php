@@ -3,67 +3,58 @@
 # source: mesh.proto
 
 /**
- *
  * Error codes for critical errors
  * The device might report these fault codes on the screen.
  * If you encounter a fault code, please post on the meshtastic.discourse.group
  * and we'll try to help.
  *
- * Protobuf enum <code>CriticalErrorCode</code>
+ * Protobuf type <code>CriticalErrorCode</code>
  */
 class CriticalErrorCode
 {
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf enum <code>NONE = 0;</code>
      */
     const NONE = 0;
     /**
-     *
      * A software bug was detected while trying to send lora
      *
      * Generated from protobuf enum <code>TX_WATCHDOG = 1;</code>
      */
     const TX_WATCHDOG = 1;
     /**
-     *
      * A software bug was detected on entry to sleep
      *
      * Generated from protobuf enum <code>SLEEP_ENTER_WAIT = 2;</code>
      */
     const SLEEP_ENTER_WAIT = 2;
     /**
-     *
      * No Lora radio hardware could be found
      *
      * Generated from protobuf enum <code>NO_RADIO = 3;</code>
      */
     const NO_RADIO = 3;
     /**
-     *
      * Not normally used
      *
      * Generated from protobuf enum <code>UNSPECIFIED = 4;</code>
      */
     const UNSPECIFIED = 4;
     /**
-     *
      * We failed while configuring a UBlox GPS
      *
      * Generated from protobuf enum <code>UBLOX_UNIT_FAILED = 5;</code>
      */
     const UBLOX_UNIT_FAILED = 5;
     /**
-     *
      * This board was expected to have a power management chip and it is missing or broken
      *
      * Generated from protobuf enum <code>NO_AXP192 = 6;</code>
      */
     const NO_AXP192 = 6;
     /**
-     *
      * The channel tried to set a radio setting which is not supported by this chipset,
      * radio comms settings are now undefined.
      *
@@ -71,7 +62,6 @@ class CriticalErrorCode
      */
     const INVALID_RADIO_SETTING = 7;
     /**
-     *
      * Radio transmit hardware failure. We sent data to the radio chip, but it didn't
      * reply with an interrupt.
      *
@@ -79,7 +69,6 @@ class CriticalErrorCode
      */
     const TRANSMIT_FAILED = 8;
     /**
-     *
      * We detected that the main CPU voltage dropped below the minumum acceptable value
      *
      * Generated from protobuf enum <code>BROWNOUT = 9;</code>
@@ -92,12 +81,46 @@ class CriticalErrorCode
      */
     const SX1262_FAILURE = 10;
     /**
-     *
      * A (likely software but possibly hardware) failure was detected while trying to send packets.
      * If this occurs on your board, please post in the forum so that we can ask you to collect some information to allow fixing this bug
      *
      * Generated from protobuf enum <code>RADIO_SPI_BUG = 11;</code>
      */
     const RADIO_SPI_BUG = 11;
+
+    private static $valueToName = [
+        self::NONE => 'NONE',
+        self::TX_WATCHDOG => 'TX_WATCHDOG',
+        self::SLEEP_ENTER_WAIT => 'SLEEP_ENTER_WAIT',
+        self::NO_RADIO => 'NO_RADIO',
+        self::UNSPECIFIED => 'UNSPECIFIED',
+        self::UBLOX_UNIT_FAILED => 'UBLOX_UNIT_FAILED',
+        self::NO_AXP192 => 'NO_AXP192',
+        self::INVALID_RADIO_SETTING => 'INVALID_RADIO_SETTING',
+        self::TRANSMIT_FAILED => 'TRANSMIT_FAILED',
+        self::BROWNOUT => 'BROWNOUT',
+        self::SX1262_FAILURE => 'SX1262_FAILURE',
+        self::RADIO_SPI_BUG => 'RADIO_SPI_BUG',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

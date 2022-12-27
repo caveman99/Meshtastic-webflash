@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * a gps position
  *
  * Generated from protobuf message <code>Position</code>
@@ -15,29 +14,25 @@ use Google\Protobuf\Internal\GPBUtil;
 class Position extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
-     * The new preferred location encoding, divide by 1e-7 to get degrees
+     * The new preferred location encoding, multiply by 1e-7 to get degrees
      * in floating point
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 1;</code>
      */
-    private $latitude_i = 0;
+    protected $latitude_i = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 2;</code>
      */
-    private $longitude_i = 0;
+    protected $longitude_i = 0;
     /**
-     *
      * In meters above MSL (but see issue #359)
      *
      * Generated from protobuf field <code>int32 altitude = 3;</code>
      */
-    private $altitude = 0;
+    protected $altitude = 0;
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -46,51 +41,44 @@ class Position extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>fixed32 time = 4;</code>
      */
-    private $time = 0;
+    protected $time = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.LocSource location_source = 5;</code>
      */
-    private $location_source = 0;
+    protected $location_source = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.AltSource altitude_source = 6;</code>
      */
-    private $altitude_source = 0;
+    protected $altitude_source = 0;
     /**
-     *
      * Positional timestamp (actual timestamp of GPS solution) in integer epoch seconds
      *
      * Generated from protobuf field <code>fixed32 timestamp = 7;</code>
      */
-    private $timestamp = 0;
+    protected $timestamp = 0;
     /**
-     *
      * Pos. timestamp milliseconds adjustment (rarely available or required)
      *
      * Generated from protobuf field <code>int32 timestamp_millis_adjust = 8;</code>
      */
-    private $timestamp_millis_adjust = 0;
+    protected $timestamp_millis_adjust = 0;
     /**
-     *
      * HAE altitude in meters - can be used instead of MSL altitude
      *
      * Generated from protobuf field <code>sint32 altitude_hae = 9;</code>
      */
-    private $altitude_hae = 0;
+    protected $altitude_hae = 0;
     /**
-     *
      * Geoidal separation in meters
      *
      * Generated from protobuf field <code>sint32 altitude_geoidal_separation = 10;</code>
      */
-    private $altitude_geoidal_separation = 0;
+    protected $altitude_geoidal_separation = 0;
     /**
-     *
      * Horizontal, Vertical and Position Dilution of Precision, in 1/100 units
      * - PDOP is sufficient for most cases
      * - for higher precision scenarios, HDOP and VDOP can be used instead,
@@ -99,32 +87,28 @@ class Position extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 PDOP = 11;</code>
      */
-    private $PDOP = 0;
+    protected $PDOP = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 HDOP = 12;</code>
      */
-    private $HDOP = 0;
+    protected $HDOP = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 VDOP = 13;</code>
      */
-    private $VDOP = 0;
+    protected $VDOP = 0;
     /**
-     *
      * GPS accuracy (a hardware specific constant) in mm
      *   multiplied with DOP to calculate positional accuracy
      * Default: "'bout three meters-ish" :)
      *
      * Generated from protobuf field <code>uint32 gps_accuracy = 14;</code>
      */
-    private $gps_accuracy = 0;
+    protected $gps_accuracy = 0;
     /**
-     *
      * Ground speed in m/s and True North TRACK in 1/100 degrees
      * Clarification of terms:
      * - "track" is the direction of motion (measured in horizontal plane)
@@ -134,44 +118,38 @@ class Position extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 ground_speed = 15;</code>
      */
-    private $ground_speed = 0;
+    protected $ground_speed = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 ground_track = 16;</code>
      */
-    private $ground_track = 0;
+    protected $ground_track = 0;
     /**
-     *
      * GPS fix quality (from NMEA GxGGA statement or similar)
      *
      * Generated from protobuf field <code>uint32 fix_quality = 17;</code>
      */
-    private $fix_quality = 0;
+    protected $fix_quality = 0;
     /**
-     *
      * GPS fix type 2D/3D (from NMEA GxGSA statement)
      *
      * Generated from protobuf field <code>uint32 fix_type = 18;</code>
      */
-    private $fix_type = 0;
+    protected $fix_type = 0;
     /**
-     *
      * GPS "Satellites in View" number
      *
      * Generated from protobuf field <code>uint32 sats_in_view = 19;</code>
      */
-    private $sats_in_view = 0;
+    protected $sats_in_view = 0;
     /**
-     *
      * Sensor ID - in case multiple positioning sensors are being used
      *
      * Generated from protobuf field <code>uint32 sensor_id = 20;</code>
      */
-    private $sensor_id = 0;
+    protected $sensor_id = 0;
     /**
-     *
      * Estimated/expected time (in seconds) until next update:
      * - if we update at fixed intervals of X seconds, use X
      * - if we update at dynamic intervals (based on relative movement etc),
@@ -179,24 +157,94 @@ class Position extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 next_update = 21;</code>
      */
-    private $next_update = 0;
+    protected $next_update = 0;
     /**
-     *
      * A sequence number, incremented with each Position message to help
      *   detect lost updates if needed
      *
      * Generated from protobuf field <code>uint32 seq_number = 22;</code>
      */
-    private $seq_number = 0;
+    protected $seq_number = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $latitude_i
+     *           The new preferred location encoding, multiply by 1e-7 to get degrees
+     *           in floating point
+     *     @type int $longitude_i
+     *           TODO: REPLACE
+     *     @type int $altitude
+     *           In meters above MSL (but see issue #359)
+     *     @type int $time
+     *           This is usually not sent over the mesh (to save space), but it is sent
+     *           from the phone so that the local device can set its RTC If it is sent over
+     *           the mesh (because there are devices on the mesh without GPS), it will only
+     *           be sent by devices which has a hardware GPS clock.
+     *           seconds since 1970
+     *     @type int $location_source
+     *           TODO: REPLACE
+     *     @type int $altitude_source
+     *           TODO: REPLACE
+     *     @type int $timestamp
+     *           Positional timestamp (actual timestamp of GPS solution) in integer epoch seconds
+     *     @type int $timestamp_millis_adjust
+     *           Pos. timestamp milliseconds adjustment (rarely available or required)
+     *     @type int $altitude_hae
+     *           HAE altitude in meters - can be used instead of MSL altitude
+     *     @type int $altitude_geoidal_separation
+     *           Geoidal separation in meters
+     *     @type int $PDOP
+     *           Horizontal, Vertical and Position Dilution of Precision, in 1/100 units
+     *           - PDOP is sufficient for most cases
+     *           - for higher precision scenarios, HDOP and VDOP can be used instead,
+     *             in which case PDOP becomes redundant (PDOP=sqrt(HDOP^2 + VDOP^2))
+     *           TODO: REMOVE/INTEGRATE
+     *     @type int $HDOP
+     *           TODO: REPLACE
+     *     @type int $VDOP
+     *           TODO: REPLACE
+     *     @type int $gps_accuracy
+     *           GPS accuracy (a hardware specific constant) in mm
+     *             multiplied with DOP to calculate positional accuracy
+     *           Default: "'bout three meters-ish" :)
+     *     @type int $ground_speed
+     *           Ground speed in m/s and True North TRACK in 1/100 degrees
+     *           Clarification of terms:
+     *           - "track" is the direction of motion (measured in horizontal plane)
+     *           - "heading" is where the fuselage points (measured in horizontal plane)
+     *           - "yaw" indicates a relative rotation about the vertical axis
+     *           TODO: REMOVE/INTEGRATE
+     *     @type int $ground_track
+     *           TODO: REPLACE
+     *     @type int $fix_quality
+     *           GPS fix quality (from NMEA GxGGA statement or similar)
+     *     @type int $fix_type
+     *           GPS fix type 2D/3D (from NMEA GxGSA statement)
+     *     @type int $sats_in_view
+     *           GPS "Satellites in View" number
+     *     @type int $sensor_id
+     *           Sensor ID - in case multiple positioning sensors are being used
+     *     @type int $next_update
+     *           Estimated/expected time (in seconds) until next update:
+     *           - if we update at fixed intervals of X seconds, use X
+     *           - if we update at dynamic intervals (based on relative movement etc),
+     *             but "AT LEAST every Y seconds", use Y
+     *     @type int $seq_number
+     *           A sequence number, incremented with each Position message to help
+     *             detect lost updates if needed
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
-     * The new preferred location encoding, divide by 1e-7 to get degrees
+     * The new preferred location encoding, multiply by 1e-7 to get degrees
      * in floating point
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 1;</code>
@@ -208,8 +256,7 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
-     * The new preferred location encoding, divide by 1e-7 to get degrees
+     * The new preferred location encoding, multiply by 1e-7 to get degrees
      * in floating point
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 1;</code>
@@ -225,7 +272,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 2;</code>
@@ -237,7 +283,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 2;</code>
@@ -253,7 +298,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * In meters above MSL (but see issue #359)
      *
      * Generated from protobuf field <code>int32 altitude = 3;</code>
@@ -265,7 +309,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * In meters above MSL (but see issue #359)
      *
      * Generated from protobuf field <code>int32 altitude = 3;</code>
@@ -281,7 +324,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -297,7 +339,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -317,7 +358,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.LocSource location_source = 5;</code>
@@ -329,7 +369,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.LocSource location_source = 5;</code>
@@ -338,14 +377,13 @@ class Position extends \Google\Protobuf\Internal\Message
      */
     public function setLocationSource($var)
     {
-        GPBUtil::checkEnum($var, \Position_LocSource::class);
+        GPBUtil::checkEnum($var, \Position\LocSource::class);
         $this->location_source = $var;
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.AltSource altitude_source = 6;</code>
@@ -357,7 +395,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Position.AltSource altitude_source = 6;</code>
@@ -366,14 +403,13 @@ class Position extends \Google\Protobuf\Internal\Message
      */
     public function setAltitudeSource($var)
     {
-        GPBUtil::checkEnum($var, \Position_AltSource::class);
+        GPBUtil::checkEnum($var, \Position\AltSource::class);
         $this->altitude_source = $var;
 
         return $this;
     }
 
     /**
-     *
      * Positional timestamp (actual timestamp of GPS solution) in integer epoch seconds
      *
      * Generated from protobuf field <code>fixed32 timestamp = 7;</code>
@@ -385,7 +421,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Positional timestamp (actual timestamp of GPS solution) in integer epoch seconds
      *
      * Generated from protobuf field <code>fixed32 timestamp = 7;</code>
@@ -401,7 +436,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Pos. timestamp milliseconds adjustment (rarely available or required)
      *
      * Generated from protobuf field <code>int32 timestamp_millis_adjust = 8;</code>
@@ -413,7 +447,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Pos. timestamp milliseconds adjustment (rarely available or required)
      *
      * Generated from protobuf field <code>int32 timestamp_millis_adjust = 8;</code>
@@ -429,7 +462,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * HAE altitude in meters - can be used instead of MSL altitude
      *
      * Generated from protobuf field <code>sint32 altitude_hae = 9;</code>
@@ -441,7 +473,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * HAE altitude in meters - can be used instead of MSL altitude
      *
      * Generated from protobuf field <code>sint32 altitude_hae = 9;</code>
@@ -457,7 +488,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Geoidal separation in meters
      *
      * Generated from protobuf field <code>sint32 altitude_geoidal_separation = 10;</code>
@@ -469,7 +499,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Geoidal separation in meters
      *
      * Generated from protobuf field <code>sint32 altitude_geoidal_separation = 10;</code>
@@ -485,7 +514,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Horizontal, Vertical and Position Dilution of Precision, in 1/100 units
      * - PDOP is sufficient for most cases
      * - for higher precision scenarios, HDOP and VDOP can be used instead,
@@ -501,7 +529,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Horizontal, Vertical and Position Dilution of Precision, in 1/100 units
      * - PDOP is sufficient for most cases
      * - for higher precision scenarios, HDOP and VDOP can be used instead,
@@ -521,7 +548,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 HDOP = 12;</code>
@@ -533,7 +559,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 HDOP = 12;</code>
@@ -549,7 +574,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 VDOP = 13;</code>
@@ -561,7 +585,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 VDOP = 13;</code>
@@ -577,7 +600,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS accuracy (a hardware specific constant) in mm
      *   multiplied with DOP to calculate positional accuracy
      * Default: "'bout three meters-ish" :)
@@ -591,7 +613,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS accuracy (a hardware specific constant) in mm
      *   multiplied with DOP to calculate positional accuracy
      * Default: "'bout three meters-ish" :)
@@ -609,7 +630,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Ground speed in m/s and True North TRACK in 1/100 degrees
      * Clarification of terms:
      * - "track" is the direction of motion (measured in horizontal plane)
@@ -626,7 +646,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Ground speed in m/s and True North TRACK in 1/100 degrees
      * Clarification of terms:
      * - "track" is the direction of motion (measured in horizontal plane)
@@ -647,7 +666,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 ground_track = 16;</code>
@@ -659,7 +677,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>uint32 ground_track = 16;</code>
@@ -675,7 +692,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS fix quality (from NMEA GxGGA statement or similar)
      *
      * Generated from protobuf field <code>uint32 fix_quality = 17;</code>
@@ -687,7 +703,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS fix quality (from NMEA GxGGA statement or similar)
      *
      * Generated from protobuf field <code>uint32 fix_quality = 17;</code>
@@ -703,7 +718,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS fix type 2D/3D (from NMEA GxGSA statement)
      *
      * Generated from protobuf field <code>uint32 fix_type = 18;</code>
@@ -715,7 +729,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS fix type 2D/3D (from NMEA GxGSA statement)
      *
      * Generated from protobuf field <code>uint32 fix_type = 18;</code>
@@ -731,7 +744,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS "Satellites in View" number
      *
      * Generated from protobuf field <code>uint32 sats_in_view = 19;</code>
@@ -743,7 +755,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * GPS "Satellites in View" number
      *
      * Generated from protobuf field <code>uint32 sats_in_view = 19;</code>
@@ -759,7 +770,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Sensor ID - in case multiple positioning sensors are being used
      *
      * Generated from protobuf field <code>uint32 sensor_id = 20;</code>
@@ -771,7 +781,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Sensor ID - in case multiple positioning sensors are being used
      *
      * Generated from protobuf field <code>uint32 sensor_id = 20;</code>
@@ -787,7 +796,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Estimated/expected time (in seconds) until next update:
      * - if we update at fixed intervals of X seconds, use X
      * - if we update at dynamic intervals (based on relative movement etc),
@@ -802,7 +810,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Estimated/expected time (in seconds) until next update:
      * - if we update at fixed intervals of X seconds, use X
      * - if we update at dynamic intervals (based on relative movement etc),
@@ -821,7 +828,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A sequence number, incremented with each Position message to help
      *   detect lost updates if needed
      *
@@ -834,7 +840,6 @@ class Position extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A sequence number, incremented with each Position message to help
      *   detect lost updates if needed
      *

@@ -13,28 +13,48 @@ class Config extends \Google\Protobuf\Internal\Message
 {
     protected $payload_variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Config\DeviceConfig $device
+     *     @type \Config\PositionConfig $position
+     *     @type \Config\PowerConfig $power
+     *     @type \Config\NetworkConfig $network
+     *     @type \Config\DisplayConfig $display
+     *     @type \Config\LoRaConfig $lora
+     *     @type \Config\BluetoothConfig $bluetooth
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Config::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
      * Generated from protobuf field <code>.Config.DeviceConfig device = 1;</code>
-     * @return \Config_DeviceConfig
+     * @return \Config\DeviceConfig|null
      */
     public function getDevice()
     {
         return $this->readOneof(1);
     }
 
+    public function hasDevice()
+    {
+        return $this->hasOneof(1);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.DeviceConfig device = 1;</code>
-     * @param \Config_DeviceConfig $var
+     * @param \Config\DeviceConfig $var
      * @return $this
      */
     public function setDevice($var)
     {
-        GPBUtil::checkMessage($var, \Config_DeviceConfig::class);
+        GPBUtil::checkMessage($var, \Config\DeviceConfig::class);
         $this->writeOneof(1, $var);
 
         return $this;
@@ -42,21 +62,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.PositionConfig position = 2;</code>
-     * @return \Config_PositionConfig
+     * @return \Config\PositionConfig|null
      */
     public function getPosition()
     {
         return $this->readOneof(2);
     }
 
+    public function hasPosition()
+    {
+        return $this->hasOneof(2);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.PositionConfig position = 2;</code>
-     * @param \Config_PositionConfig $var
+     * @param \Config\PositionConfig $var
      * @return $this
      */
     public function setPosition($var)
     {
-        GPBUtil::checkMessage($var, \Config_PositionConfig::class);
+        GPBUtil::checkMessage($var, \Config\PositionConfig::class);
         $this->writeOneof(2, $var);
 
         return $this;
@@ -64,21 +89,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.PowerConfig power = 3;</code>
-     * @return \Config_PowerConfig
+     * @return \Config\PowerConfig|null
      */
     public function getPower()
     {
         return $this->readOneof(3);
     }
 
+    public function hasPower()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.PowerConfig power = 3;</code>
-     * @param \Config_PowerConfig $var
+     * @param \Config\PowerConfig $var
      * @return $this
      */
     public function setPower($var)
     {
-        GPBUtil::checkMessage($var, \Config_PowerConfig::class);
+        GPBUtil::checkMessage($var, \Config\PowerConfig::class);
         $this->writeOneof(3, $var);
 
         return $this;
@@ -86,21 +116,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.NetworkConfig network = 4;</code>
-     * @return \Config_NetworkConfig
+     * @return \Config\NetworkConfig|null
      */
     public function getNetwork()
     {
         return $this->readOneof(4);
     }
 
+    public function hasNetwork()
+    {
+        return $this->hasOneof(4);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.NetworkConfig network = 4;</code>
-     * @param \Config_NetworkConfig $var
+     * @param \Config\NetworkConfig $var
      * @return $this
      */
     public function setNetwork($var)
     {
-        GPBUtil::checkMessage($var, \Config_NetworkConfig::class);
+        GPBUtil::checkMessage($var, \Config\NetworkConfig::class);
         $this->writeOneof(4, $var);
 
         return $this;
@@ -108,21 +143,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.DisplayConfig display = 5;</code>
-     * @return \Config_DisplayConfig
+     * @return \Config\DisplayConfig|null
      */
     public function getDisplay()
     {
         return $this->readOneof(5);
     }
 
+    public function hasDisplay()
+    {
+        return $this->hasOneof(5);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.DisplayConfig display = 5;</code>
-     * @param \Config_DisplayConfig $var
+     * @param \Config\DisplayConfig $var
      * @return $this
      */
     public function setDisplay($var)
     {
-        GPBUtil::checkMessage($var, \Config_DisplayConfig::class);
+        GPBUtil::checkMessage($var, \Config\DisplayConfig::class);
         $this->writeOneof(5, $var);
 
         return $this;
@@ -130,21 +170,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.LoRaConfig lora = 6;</code>
-     * @return \Config_LoRaConfig
+     * @return \Config\LoRaConfig|null
      */
     public function getLora()
     {
         return $this->readOneof(6);
     }
 
+    public function hasLora()
+    {
+        return $this->hasOneof(6);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.LoRaConfig lora = 6;</code>
-     * @param \Config_LoRaConfig $var
+     * @param \Config\LoRaConfig $var
      * @return $this
      */
     public function setLora($var)
     {
-        GPBUtil::checkMessage($var, \Config_LoRaConfig::class);
+        GPBUtil::checkMessage($var, \Config\LoRaConfig::class);
         $this->writeOneof(6, $var);
 
         return $this;
@@ -152,21 +197,26 @@ class Config extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Config.BluetoothConfig bluetooth = 7;</code>
-     * @return \Config_BluetoothConfig
+     * @return \Config\BluetoothConfig|null
      */
     public function getBluetooth()
     {
         return $this->readOneof(7);
     }
 
+    public function hasBluetooth()
+    {
+        return $this->hasOneof(7);
+    }
+
     /**
      * Generated from protobuf field <code>.Config.BluetoothConfig bluetooth = 7;</code>
-     * @param \Config_BluetoothConfig $var
+     * @param \Config\BluetoothConfig $var
      * @return $this
      */
     public function setBluetooth($var)
     {
-        GPBUtil::checkMessage($var, \Config_BluetoothConfig::class);
+        GPBUtil::checkMessage($var, \Config\BluetoothConfig::class);
         $this->writeOneof(7, $var);
 
         return $this;

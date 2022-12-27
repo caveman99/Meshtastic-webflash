@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Broadcast when a newly powered mesh node wants to find a node num it can use
  * Sent from the phone over bluetooth to set the user id for the owner of this node.
  * Also sent from nodes to each other when a new node signs on (so all clients can have this info)
@@ -34,7 +33,6 @@ use Google\Protobuf\Internal\GPBUtil;
 class User extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * A globally unique ID string for this user.
      * In the case of Signal that would mean +16504442323, for the default macaddr derived id it would be !<8 hexidecimal bytes>.
      * Note: app developers are encouraged to also use the following standard
@@ -42,32 +40,28 @@ class User extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string id = 1;</code>
      */
-    private $id = '';
+    protected $id = '';
     /**
-     *
      * A full name for this user, i.e. "Kevin Hester"
      *
      * Generated from protobuf field <code>string long_name = 2;</code>
      */
-    private $long_name = '';
+    protected $long_name = '';
     /**
-     *
      * A VERY short name, ideally two characters.
      * Suitable for a tiny OLED screen
      *
      * Generated from protobuf field <code>string short_name = 3;</code>
      */
-    private $short_name = '';
+    protected $short_name = '';
     /**
-     *
      * This is the addr of the radio.
      * Not populated by the phone, but added by the esp32 when broadcasting
      *
      * Generated from protobuf field <code>bytes macaddr = 4;</code>
      */
-    private $macaddr = '';
+    protected $macaddr = '';
     /**
-     *
      * TBEAM, HELTEC, etc...
      * Starting in 1.2.11 moved to hw_model enum in the NodeInfo object.
      * Apps will still need the string here for older builds
@@ -75,24 +69,52 @@ class User extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.HardwareModel hw_model = 5;</code>
      */
-    private $hw_model = 0;
+    protected $hw_model = 0;
     /**
-     *
      * In some regions Ham radio operators have different bandwidth limitations than others.
      * If this user is a licensed operator, set this flag.
      * Also, "long_name" should be their licence number.
      *
      * Generated from protobuf field <code>bool is_licensed = 6;</code>
      */
-    private $is_licensed = false;
+    protected $is_licensed = false;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $id
+     *           A globally unique ID string for this user.
+     *           In the case of Signal that would mean +16504442323, for the default macaddr derived id it would be !<8 hexidecimal bytes>.
+     *           Note: app developers are encouraged to also use the following standard
+     *           node IDs "^all" (for broadcast), "^local" (for the locally connected node)
+     *     @type string $long_name
+     *           A full name for this user, i.e. "Kevin Hester"
+     *     @type string $short_name
+     *           A VERY short name, ideally two characters.
+     *           Suitable for a tiny OLED screen
+     *     @type string $macaddr
+     *           This is the addr of the radio.
+     *           Not populated by the phone, but added by the esp32 when broadcasting
+     *     @type int $hw_model
+     *           TBEAM, HELTEC, etc...
+     *           Starting in 1.2.11 moved to hw_model enum in the NodeInfo object.
+     *           Apps will still need the string here for older builds
+     *           (so OTA update can find the right image), but if the enum is available it will be used instead.
+     *     @type bool $is_licensed
+     *           In some regions Ham radio operators have different bandwidth limitations than others.
+     *           If this user is a licensed operator, set this flag.
+     *           Also, "long_name" should be their licence number.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * A globally unique ID string for this user.
      * In the case of Signal that would mean +16504442323, for the default macaddr derived id it would be !<8 hexidecimal bytes>.
      * Note: app developers are encouraged to also use the following standard
@@ -107,7 +129,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A globally unique ID string for this user.
      * In the case of Signal that would mean +16504442323, for the default macaddr derived id it would be !<8 hexidecimal bytes>.
      * Note: app developers are encouraged to also use the following standard
@@ -126,7 +147,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A full name for this user, i.e. "Kevin Hester"
      *
      * Generated from protobuf field <code>string long_name = 2;</code>
@@ -138,7 +158,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A full name for this user, i.e. "Kevin Hester"
      *
      * Generated from protobuf field <code>string long_name = 2;</code>
@@ -154,7 +173,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A VERY short name, ideally two characters.
      * Suitable for a tiny OLED screen
      *
@@ -167,7 +185,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A VERY short name, ideally two characters.
      * Suitable for a tiny OLED screen
      *
@@ -184,7 +201,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This is the addr of the radio.
      * Not populated by the phone, but added by the esp32 when broadcasting
      *
@@ -197,7 +213,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This is the addr of the radio.
      * Not populated by the phone, but added by the esp32 when broadcasting
      *
@@ -214,7 +229,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TBEAM, HELTEC, etc...
      * Starting in 1.2.11 moved to hw_model enum in the NodeInfo object.
      * Apps will still need the string here for older builds
@@ -229,7 +243,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TBEAM, HELTEC, etc...
      * Starting in 1.2.11 moved to hw_model enum in the NodeInfo object.
      * Apps will still need the string here for older builds
@@ -248,7 +261,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * In some regions Ham radio operators have different bandwidth limitations than others.
      * If this user is a licensed operator, set this flag.
      * Also, "long_name" should be their licence number.
@@ -262,7 +274,6 @@ class User extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * In some regions Ham radio operators have different bandwidth limitations than others.
      * If this user is a licensed operator, set this flag.
      * Also, "long_name" should be their licence number.

@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * This can be used for customizing the firmware distribution. If populated,
  * show a secondary bootup screen with cuatom logo and text for 2.5 seconds.
  *
@@ -16,55 +15,68 @@ use Google\Protobuf\Internal\GPBUtil;
 class OEMStore extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The Logo width in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_width = 1;</code>
      */
-    private $oem_icon_width = 0;
+    protected $oem_icon_width = 0;
     /**
-     *
      * The Logo height in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_height = 2;</code>
      */
-    private $oem_icon_height = 0;
+    protected $oem_icon_height = 0;
     /**
-     *
      * The Logo in xbm bytechar format
      *
      * Generated from protobuf field <code>bytes oem_icon_bits = 3;</code>
      */
-    private $oem_icon_bits = '';
+    protected $oem_icon_bits = '';
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>.ScreenFonts oem_font = 4;</code>
      */
-    private $oem_font = 0;
+    protected $oem_font = 0;
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>string oem_text = 5;</code>
      */
-    private $oem_text = '';
+    protected $oem_text = '';
     /**
-     *
      * The default device encryption key, 16 or 32 byte
      *
      * Generated from protobuf field <code>bytes oem_aes_key = 6;</code>
      */
-    private $oem_aes_key = '';
+    protected $oem_aes_key = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $oem_icon_width
+     *           The Logo width in Px
+     *     @type int $oem_icon_height
+     *           The Logo height in Px
+     *     @type string $oem_icon_bits
+     *           The Logo in xbm bytechar format
+     *     @type int $oem_font
+     *           Use this font for the OEM text.
+     *     @type string $oem_text
+     *           Use this font for the OEM text.
+     *     @type string $oem_aes_key
+     *           The default device encryption key, 16 or 32 byte
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Deviceonly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The Logo width in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_width = 1;</code>
@@ -76,7 +88,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The Logo width in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_width = 1;</code>
@@ -92,7 +103,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The Logo height in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_height = 2;</code>
@@ -104,7 +114,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The Logo height in Px
      *
      * Generated from protobuf field <code>uint32 oem_icon_height = 2;</code>
@@ -120,7 +129,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The Logo in xbm bytechar format
      *
      * Generated from protobuf field <code>bytes oem_icon_bits = 3;</code>
@@ -132,7 +140,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The Logo in xbm bytechar format
      *
      * Generated from protobuf field <code>bytes oem_icon_bits = 3;</code>
@@ -148,7 +155,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>.ScreenFonts oem_font = 4;</code>
@@ -160,7 +166,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>.ScreenFonts oem_font = 4;</code>
@@ -176,7 +181,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>string oem_text = 5;</code>
@@ -188,7 +192,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Use this font for the OEM text.
      *
      * Generated from protobuf field <code>string oem_text = 5;</code>
@@ -204,7 +207,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The default device encryption key, 16 or 32 byte
      *
      * Generated from protobuf field <code>bytes oem_aes_key = 6;</code>
@@ -216,7 +218,6 @@ class OEMStore extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The default device encryption key, 16 or 32 byte
      *
      * Generated from protobuf field <code>bytes oem_aes_key = 6;</code>

@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * A packet envelope sent/received over the mesh
  * only payload_variant is sent in the payload portion of the LORA packet.
  * The other fields are either not sent at all, or sent in the special 16 byte LORA header.
@@ -17,25 +16,22 @@ use Google\Protobuf\Internal\GPBUtil;
 class MeshPacket extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The sending node number.
      * Note: Our crypto implementation uses this field as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only hurts the ble link though.
      *
      * Generated from protobuf field <code>fixed32 from = 1;</code>
      */
-    private $from = 0;
+    protected $from = 0;
     /**
-     *
      * The (immediatSee Priority description for more details.y should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
      * Generated from protobuf field <code>fixed32 to = 2;</code>
      */
-    private $to = 0;
+    protected $to = 0;
     /**
-     *
      * (Usually) If set, this indicates the index in the secondary_channels table that this packet was sent/received on.
      * If unset, packet was on the primary channel.
      * A particular node might know only a subset of channels in use on the mesh.
@@ -46,9 +42,8 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 channel = 3;</code>
      */
-    private $channel = 0;
+    protected $channel = 0;
     /**
-     *
      * A unique ID for this packet.
      * Always 0 for no-ack packets or non broadcast packets (and therefore take zero bytes of space).
      * Otherwise a unique ID for this packet, useful for flooding algorithms.
@@ -56,15 +51,14 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      * needs to be unique for a few minutes (long enough to last for the length of
      * any ACK or the completion of a mesh broadcast flood).
      * Note: Our crypto implementation uses this id as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
      * Generated from protobuf field <code>fixed32 id = 6;</code>
      */
-    private $id = 0;
+    protected $id = 0;
     /**
-     *
      * The time this message was received by the esp32 (secs since 1970).
      * Note: this field is _never_ sent on the radio link itself (to save space) Times
      * are typically not sent over the mesh, but they will be added to any Packet
@@ -72,18 +66,16 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>fixed32 rx_time = 7;</code>
      */
-    private $rx_time = 0;
+    protected $rx_time = 0;
     /**
-     *
      * *Never* sent over the radio links.
      * Set during reception to indicate the SNR of this packet.
      * Used to collect statistics on current link quality.
      *
      * Generated from protobuf field <code>float rx_snr = 8;</code>
      */
-    private $rx_snr = 0.0;
+    protected $rx_snr = 0.0;
     /**
-     *
      * If unset treated as zero (no forwarding, send to adjacent nodes only)
      * if 1, allow hopping through one node, etc...
      * For our usecase real world topologies probably have a max of about 3.
@@ -91,9 +83,8 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>uint32 hop_limit = 9;</code>
      */
-    private $hop_limit = 0;
+    protected $hop_limit = 0;
     /**
-     *
      * This packet is being sent as a reliable message, we would prefer it to arrive at the destination.
      * We would like to receive a ack packet in response.
      * Broadcasts messages treat this flag specially: Since acks for broadcasts would
@@ -106,41 +97,107 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>bool want_ack = 10;</code>
      */
-    private $want_ack = false;
+    protected $want_ack = false;
     /**
-     *
      * The priority of this message for sending.
      * See MeshPacket.Priority description for more details.
      *
      * Generated from protobuf field <code>.MeshPacket.Priority priority = 11;</code>
      */
-    private $priority = 0;
+    protected $priority = 0;
     /**
-     *
      * rssi of received packet. Only sent to phone for dispay purposes.
      *
      * Generated from protobuf field <code>int32 rx_rssi = 12;</code>
      */
-    private $rx_rssi = 0;
+    protected $rx_rssi = 0;
     /**
-     *
      * Describe if this message is delayed
      *
      * Generated from protobuf field <code>.MeshPacket.Delayed delayed = 13;</code>
      */
-    private $delayed = 0;
+    protected $delayed = 0;
     protected $payload_variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $from
+     *           The sending node number.
+     *           Note: Our crypto implementation uses this field as well.
+     *           See [crypto](/docs/overview/encryption) for details.
+     *           FIXME - really should be fixed32 instead, this encoding only hurts the ble link though.
+     *     @type int $to
+     *           The (immediatSee Priority description for more details.y should be fixed32 instead, this encoding only
+     *           hurts the ble link though.
+     *     @type int $channel
+     *           (Usually) If set, this indicates the index in the secondary_channels table that this packet was sent/received on.
+     *           If unset, packet was on the primary channel.
+     *           A particular node might know only a subset of channels in use on the mesh.
+     *           Therefore channel_index is inherently a local concept and meaningless to send between nodes.
+     *           Very briefly, while sending and receiving deep inside the device Router code, this field instead
+     *           contains the 'channel hash' instead of the index.
+     *           This 'trick' is only used while the payload_variant is an 'encrypted'.
+     *     @type \Data $decoded
+     *           TODO: REPLACE
+     *     @type string $encrypted
+     *           TODO: REPLACE
+     *     @type int $id
+     *           A unique ID for this packet.
+     *           Always 0 for no-ack packets or non broadcast packets (and therefore take zero bytes of space).
+     *           Otherwise a unique ID for this packet, useful for flooding algorithms.
+     *           ID only needs to be unique on a _per sender_ basis, and it only
+     *           needs to be unique for a few minutes (long enough to last for the length of
+     *           any ACK or the completion of a mesh broadcast flood).
+     *           Note: Our crypto implementation uses this id as well.
+     *           See [crypto](/docs/overview/encryption) for details.
+     *           FIXME - really should be fixed32 instead, this encoding only
+     *           hurts the ble link though.
+     *     @type int $rx_time
+     *           The time this message was received by the esp32 (secs since 1970).
+     *           Note: this field is _never_ sent on the radio link itself (to save space) Times
+     *           are typically not sent over the mesh, but they will be added to any Packet
+     *           (chain of SubPacket) sent to the phone (so the phone can know exact time of reception)
+     *     @type float $rx_snr
+     *           *Never* sent over the radio links.
+     *           Set during reception to indicate the SNR of this packet.
+     *           Used to collect statistics on current link quality.
+     *     @type int $hop_limit
+     *           If unset treated as zero (no forwarding, send to adjacent nodes only)
+     *           if 1, allow hopping through one node, etc...
+     *           For our usecase real world topologies probably have a max of about 3.
+     *           This field is normally placed into a few of bits in the header.
+     *     @type bool $want_ack
+     *           This packet is being sent as a reliable message, we would prefer it to arrive at the destination.
+     *           We would like to receive a ack packet in response.
+     *           Broadcasts messages treat this flag specially: Since acks for broadcasts would
+     *           rapidly flood the channel, the normal ack behavior is suppressed.
+     *           Instead, the original sender listens to see if at least one node is rebroadcasting this packet (because naive flooding algorithm).
+     *           If it hears that the odds (given typical LoRa topologies) the odds are very high that every node should eventually receive the message.
+     *           So FloodingRouter.cpp generates an implicit ack which is delivered to the original sender.
+     *           If after some time we don't hear anyone rebroadcast our packet, we will timeout and retransmit, using the regular resend logic.
+     *           Note: This flag is normally sent in a flag bit in the header when sent over the wire
+     *     @type int $priority
+     *           The priority of this message for sending.
+     *           See MeshPacket.Priority description for more details.
+     *     @type int $rx_rssi
+     *           rssi of received packet. Only sent to phone for dispay purposes.
+     *     @type int $delayed
+     *           Describe if this message is delayed
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The sending node number.
      * Note: Our crypto implementation uses this field as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only hurts the ble link though.
      *
      * Generated from protobuf field <code>fixed32 from = 1;</code>
@@ -152,10 +209,9 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The sending node number.
      * Note: Our crypto implementation uses this field as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only hurts the ble link though.
      *
      * Generated from protobuf field <code>fixed32 from = 1;</code>
@@ -171,7 +227,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The (immediatSee Priority description for more details.y should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
@@ -184,7 +239,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The (immediatSee Priority description for more details.y should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
@@ -201,7 +255,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * (Usually) If set, this indicates the index in the secondary_channels table that this packet was sent/received on.
      * If unset, packet was on the primary channel.
      * A particular node might know only a subset of channels in use on the mesh.
@@ -219,7 +272,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * (Usually) If set, this indicates the index in the secondary_channels table that this packet was sent/received on.
      * If unset, packet was on the primary channel.
      * A particular node might know only a subset of channels in use on the mesh.
@@ -241,19 +293,22 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Data decoded = 4;</code>
-     * @return \Data
+     * @return \Data|null
      */
     public function getDecoded()
     {
         return $this->readOneof(4);
     }
 
+    public function hasDecoded()
+    {
+        return $this->hasOneof(4);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.Data decoded = 4;</code>
@@ -269,7 +324,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>bytes encrypted = 5;</code>
@@ -280,8 +334,12 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
         return $this->readOneof(5);
     }
 
+    public function hasEncrypted()
+    {
+        return $this->hasOneof(5);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>bytes encrypted = 5;</code>
@@ -297,7 +355,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A unique ID for this packet.
      * Always 0 for no-ack packets or non broadcast packets (and therefore take zero bytes of space).
      * Otherwise a unique ID for this packet, useful for flooding algorithms.
@@ -305,7 +362,7 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      * needs to be unique for a few minutes (long enough to last for the length of
      * any ACK or the completion of a mesh broadcast flood).
      * Note: Our crypto implementation uses this id as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
@@ -318,7 +375,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A unique ID for this packet.
      * Always 0 for no-ack packets or non broadcast packets (and therefore take zero bytes of space).
      * Otherwise a unique ID for this packet, useful for flooding algorithms.
@@ -326,7 +382,7 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      * needs to be unique for a few minutes (long enough to last for the length of
      * any ACK or the completion of a mesh broadcast flood).
      * Note: Our crypto implementation uses this id as well.
-     * See [crypto](/docs/developers/firmware/encryption) for details.
+     * See [crypto](/docs/overview/encryption) for details.
      * FIXME - really should be fixed32 instead, this encoding only
      * hurts the ble link though.
      *
@@ -343,7 +399,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The time this message was received by the esp32 (secs since 1970).
      * Note: this field is _never_ sent on the radio link itself (to save space) Times
      * are typically not sent over the mesh, but they will be added to any Packet
@@ -358,7 +413,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The time this message was received by the esp32 (secs since 1970).
      * Note: this field is _never_ sent on the radio link itself (to save space) Times
      * are typically not sent over the mesh, but they will be added to any Packet
@@ -377,7 +431,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * *Never* sent over the radio links.
      * Set during reception to indicate the SNR of this packet.
      * Used to collect statistics on current link quality.
@@ -391,7 +444,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * *Never* sent over the radio links.
      * Set during reception to indicate the SNR of this packet.
      * Used to collect statistics on current link quality.
@@ -409,7 +461,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If unset treated as zero (no forwarding, send to adjacent nodes only)
      * if 1, allow hopping through one node, etc...
      * For our usecase real world topologies probably have a max of about 3.
@@ -424,7 +475,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If unset treated as zero (no forwarding, send to adjacent nodes only)
      * if 1, allow hopping through one node, etc...
      * For our usecase real world topologies probably have a max of about 3.
@@ -443,7 +493,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This packet is being sent as a reliable message, we would prefer it to arrive at the destination.
      * We would like to receive a ack packet in response.
      * Broadcasts messages treat this flag specially: Since acks for broadcasts would
@@ -463,7 +512,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This packet is being sent as a reliable message, we would prefer it to arrive at the destination.
      * We would like to receive a ack packet in response.
      * Broadcasts messages treat this flag specially: Since acks for broadcasts would
@@ -487,7 +535,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The priority of this message for sending.
      * See MeshPacket.Priority description for more details.
      *
@@ -500,7 +547,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The priority of this message for sending.
      * See MeshPacket.Priority description for more details.
      *
@@ -510,14 +556,13 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      */
     public function setPriority($var)
     {
-        GPBUtil::checkEnum($var, \MeshPacket_Priority::class);
+        GPBUtil::checkEnum($var, \MeshPacket\Priority::class);
         $this->priority = $var;
 
         return $this;
     }
 
     /**
-     *
      * rssi of received packet. Only sent to phone for dispay purposes.
      *
      * Generated from protobuf field <code>int32 rx_rssi = 12;</code>
@@ -529,7 +574,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * rssi of received packet. Only sent to phone for dispay purposes.
      *
      * Generated from protobuf field <code>int32 rx_rssi = 12;</code>
@@ -545,7 +589,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Describe if this message is delayed
      *
      * Generated from protobuf field <code>.MeshPacket.Delayed delayed = 13;</code>
@@ -557,7 +600,6 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Describe if this message is delayed
      *
      * Generated from protobuf field <code>.MeshPacket.Delayed delayed = 13;</code>
@@ -566,7 +608,7 @@ class MeshPacket extends \Google\Protobuf\Internal\Message
      */
     public function setDelayed($var)
     {
-        GPBUtil::checkEnum($var, \MeshPacket_Delayed::class);
+        GPBUtil::checkEnum($var, \MeshPacket\Delayed::class);
         $this->delayed = $var;
 
         return $this;

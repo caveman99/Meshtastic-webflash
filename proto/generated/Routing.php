@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * A Routing control Data packet handled by the routing module
  *
  * Generated from protobuf message <code>Routing</code>
@@ -16,25 +15,43 @@ class Routing extends \Google\Protobuf\Internal\Message
 {
     protected $variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \RouteDiscovery $route_request
+     *           A route request going from the requester
+     *     @type \RouteDiscovery $route_reply
+     *           A route reply
+     *     @type int $error_reason
+     *           A failure in delivering a message (usually used for routing control messages, but might be provided
+     *           in addition to ack.fail_id to provide details on the type of failure).
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * A route request going from the requester
      *
      * Generated from protobuf field <code>.RouteDiscovery route_request = 1;</code>
-     * @return \RouteDiscovery
+     * @return \RouteDiscovery|null
      */
     public function getRouteRequest()
     {
         return $this->readOneof(1);
     }
 
+    public function hasRouteRequest()
+    {
+        return $this->hasOneof(1);
+    }
+
     /**
-     *
      * A route request going from the requester
      *
      * Generated from protobuf field <code>.RouteDiscovery route_request = 1;</code>
@@ -50,19 +67,22 @@ class Routing extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A route reply
      *
      * Generated from protobuf field <code>.RouteDiscovery route_reply = 2;</code>
-     * @return \RouteDiscovery
+     * @return \RouteDiscovery|null
      */
     public function getRouteReply()
     {
         return $this->readOneof(2);
     }
 
+    public function hasRouteReply()
+    {
+        return $this->hasOneof(2);
+    }
+
     /**
-     *
      * A route reply
      *
      * Generated from protobuf field <code>.RouteDiscovery route_reply = 2;</code>
@@ -78,7 +98,6 @@ class Routing extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A failure in delivering a message (usually used for routing control messages, but might be provided
      * in addition to ack.fail_id to provide details on the type of failure).
      *
@@ -90,8 +109,12 @@ class Routing extends \Google\Protobuf\Internal\Message
         return $this->readOneof(3);
     }
 
+    public function hasErrorReason()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
-     *
      * A failure in delivering a message (usually used for routing control messages, but might be provided
      * in addition to ack.fail_id to provide details on the type of failure).
      *
@@ -101,7 +124,7 @@ class Routing extends \Google\Protobuf\Internal\Message
      */
     public function setErrorReason($var)
     {
-        GPBUtil::checkEnum($var, \Routing_Error::class);
+        GPBUtil::checkEnum($var, \Routing\Error::class);
         $this->writeOneof(3, $var);
 
         return $this;

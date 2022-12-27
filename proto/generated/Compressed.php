@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Compressed message payload
  *
  * Generated from protobuf message <code>Compressed</code>
@@ -15,27 +14,36 @@ use Google\Protobuf\Internal\GPBUtil;
 class Compressed extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * PortNum to determine the how to handle the compressed payload.
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
      */
-    private $portnum = 0;
+    protected $portnum = 0;
     /**
-     *
      * Compressed data.
      *
      * Generated from protobuf field <code>bytes data = 2;</code>
      */
-    private $data = '';
+    protected $data = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $portnum
+     *           PortNum to determine the how to handle the compressed payload.
+     *     @type string $data
+     *           Compressed data.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * PortNum to determine the how to handle the compressed payload.
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
@@ -47,7 +55,6 @@ class Compressed extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * PortNum to determine the how to handle the compressed payload.
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
@@ -63,7 +70,6 @@ class Compressed extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Compressed data.
      *
      * Generated from protobuf field <code>bytes data = 2;</code>
@@ -75,7 +81,6 @@ class Compressed extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Compressed data.
      *
      * Generated from protobuf field <code>bytes data = 2;</code>

@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * This message is never sent over the wire, but it is used for serializing DB
  * state to flash in the device code
  * FIXME, since we write this each time we enter deep sleep (and have infinite
@@ -19,86 +18,115 @@ use Google\Protobuf\Internal\GPBUtil;
 class DeviceState extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Read only settings/info about this node
      *
      * Generated from protobuf field <code>.MyNodeInfo my_node = 2;</code>
      */
-    private $my_node = null;
+    protected $my_node = null;
     /**
-     *
      * My owner info
      *
      * Generated from protobuf field <code>.User owner = 3;</code>
      */
-    private $owner = null;
+    protected $owner = null;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>repeated .NodeInfo node_db = 4;</code>
      */
     private $node_db;
     /**
-     *
      * Received packets saved for delivery to the phone
      *
      * Generated from protobuf field <code>repeated .MeshPacket receive_queue = 5;</code>
      */
     private $receive_queue;
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
      *
      * Generated from protobuf field <code>uint32 version = 8;</code>
      */
-    private $version = 0;
+    protected $version = 0;
     /**
-     *
      * We keep the last received text message (only) stored in the device flash,
      * so we can show it on the screen.
      * Might be null
      *
      * Generated from protobuf field <code>.MeshPacket rx_text_message = 7;</code>
      */
-    private $rx_text_message = null;
+    protected $rx_text_message = null;
     /**
-     *
      * Used only during development.
      * Indicates developer is testing and changes should never be saved to flash.
      *
      * Generated from protobuf field <code>bool no_save = 9;</code>
      */
-    private $no_save = false;
+    protected $no_save = false;
     /**
-     *
      * Some GPSes seem to have bogus settings from the factory, so we always do one factory reset.
      *
      * Generated from protobuf field <code>bool did_gps_reset = 11;</code>
      */
-    private $did_gps_reset = false;
+    protected $did_gps_reset = false;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \MyNodeInfo $my_node
+     *           Read only settings/info about this node
+     *     @type \User $owner
+     *           My owner info
+     *     @type array<\NodeInfo>|\Google\Protobuf\Internal\RepeatedField $node_db
+     *           TODO: REPLACE
+     *     @type array<\MeshPacket>|\Google\Protobuf\Internal\RepeatedField $receive_queue
+     *           Received packets saved for delivery to the phone
+     *     @type int $version
+     *           A version integer used to invalidate old save files when we make
+     *           incompatible changes This integer is set at build time and is private to
+     *           NodeDB.cpp in the device code.
+     *     @type \MeshPacket $rx_text_message
+     *           We keep the last received text message (only) stored in the device flash,
+     *           so we can show it on the screen.
+     *           Might be null
+     *     @type bool $no_save
+     *           Used only during development.
+     *           Indicates developer is testing and changes should never be saved to flash.
+     *     @type bool $did_gps_reset
+     *           Some GPSes seem to have bogus settings from the factory, so we always do one factory reset.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Deviceonly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Read only settings/info about this node
      *
      * Generated from protobuf field <code>.MyNodeInfo my_node = 2;</code>
-     * @return \MyNodeInfo
+     * @return \MyNodeInfo|null
      */
     public function getMyNode()
     {
         return $this->my_node;
     }
 
+    public function hasMyNode()
+    {
+        return isset($this->my_node);
+    }
+
+    public function clearMyNode()
+    {
+        unset($this->my_node);
+    }
+
     /**
-     *
      * Read only settings/info about this node
      *
      * Generated from protobuf field <code>.MyNodeInfo my_node = 2;</code>
@@ -114,19 +142,27 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * My owner info
      *
      * Generated from protobuf field <code>.User owner = 3;</code>
-     * @return \User
+     * @return \User|null
      */
     public function getOwner()
     {
         return $this->owner;
     }
 
+    public function hasOwner()
+    {
+        return isset($this->owner);
+    }
+
+    public function clearOwner()
+    {
+        unset($this->owner);
+    }
+
     /**
-     *
      * My owner info
      *
      * Generated from protobuf field <code>.User owner = 3;</code>
@@ -142,7 +178,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>repeated .NodeInfo node_db = 4;</code>
@@ -154,11 +189,10 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>repeated .NodeInfo node_db = 4;</code>
-     * @param \NodeInfo[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<\NodeInfo>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setNodeDb($var)
@@ -170,7 +204,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Received packets saved for delivery to the phone
      *
      * Generated from protobuf field <code>repeated .MeshPacket receive_queue = 5;</code>
@@ -182,11 +215,10 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Received packets saved for delivery to the phone
      *
      * Generated from protobuf field <code>repeated .MeshPacket receive_queue = 5;</code>
-     * @param \MeshPacket[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<\MeshPacket>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setReceiveQueue($var)
@@ -198,7 +230,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
@@ -212,7 +243,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
@@ -230,21 +260,29 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * We keep the last received text message (only) stored in the device flash,
      * so we can show it on the screen.
      * Might be null
      *
      * Generated from protobuf field <code>.MeshPacket rx_text_message = 7;</code>
-     * @return \MeshPacket
+     * @return \MeshPacket|null
      */
     public function getRxTextMessage()
     {
         return $this->rx_text_message;
     }
 
+    public function hasRxTextMessage()
+    {
+        return isset($this->rx_text_message);
+    }
+
+    public function clearRxTextMessage()
+    {
+        unset($this->rx_text_message);
+    }
+
     /**
-     *
      * We keep the last received text message (only) stored in the device flash,
      * so we can show it on the screen.
      * Might be null
@@ -262,7 +300,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Used only during development.
      * Indicates developer is testing and changes should never be saved to flash.
      *
@@ -275,7 +312,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Used only during development.
      * Indicates developer is testing and changes should never be saved to flash.
      *
@@ -292,7 +328,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Some GPSes seem to have bogus settings from the factory, so we always do one factory reset.
      *
      * Generated from protobuf field <code>bool did_gps_reset = 11;</code>
@@ -304,7 +339,6 @@ class DeviceState extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Some GPSes seem to have bogus settings from the factory, so we always do one factory reset.
      *
      * Generated from protobuf field <code>bool did_gps_reset = 11;</code>

@@ -16,37 +16,32 @@ class Localonly
         }
         \GPBMetadata\Config::initOnce();
         \GPBMetadata\ModuleConfig::initOnce();
-        $pool->internalAddGeneratedFile(hex2bin(
-            "0acc060a0f6c6f63616c6f6e6c792e70726f746f1a136d6f64756c655f63" .
-            "6f6e6669672e70726f746f22b0020a0b4c6f63616c436f6e66696712240a" .
-            "0664657669636518012001280b32142e436f6e6669672e44657669636543" .
-            "6f6e66696712280a08706f736974696f6e18022001280b32162e436f6e66" .
-            "69672e506f736974696f6e436f6e66696712220a05706f77657218032001" .
-            "280b32132e436f6e6669672e506f776572436f6e66696712260a076e6574" .
-            "776f726b18042001280b32152e436f6e6669672e4e6574776f726b436f6e" .
-            "66696712260a07646973706c617918052001280b32152e436f6e6669672e" .
-            "446973706c6179436f6e66696712200a046c6f726118062001280b32122e" .
-            "436f6e6669672e4c6f5261436f6e666967122a0a09626c7565746f6f7468" .
-            "18072001280b32172e436f6e6669672e426c7565746f6f7468436f6e6669" .
-            "67120f0a0776657273696f6e18082001280d229a030a114c6f63616c4d6f" .
-            "64756c65436f6e66696712260a046d71747418012001280b32182e4d6f64" .
-            "756c65436f6e6669672e4d515454436f6e666967122a0a0673657269616c" .
-            "18022001280b321a2e4d6f64756c65436f6e6669672e53657269616c436f" .
-            "6e66696712470a1565787465726e616c5f6e6f74696669636174696f6e18" .
-            "032001280b32282e4d6f64756c65436f6e6669672e45787465726e616c4e" .
-            "6f74696669636174696f6e436f6e66696712370a0d73746f72655f666f72" .
-            "7761726418042001280b32202e4d6f64756c65436f6e6669672e53746f72" .
-            "65466f7277617264436f6e66696712310a0a72616e67655f746573741805" .
-            "2001280b321d2e4d6f64756c65436f6e6669672e52616e67655465737443" .
-            "6f6e66696712300a0974656c656d6574727918062001280b321d2e4d6f64" .
-            "756c65436f6e6669672e54656c656d65747279436f6e66696712390a0e63" .
-            "616e6e65645f6d65737361676518072001280b32212e4d6f64756c65436f" .
-            "6e6669672e43616e6e65644d657373616765436f6e666967120f0a077665" .
-            "7273696f6e18082001280d424c0a13636f6d2e6765656b7376696c6c652e" .
-            "6d657368420f4c6f63616c4f6e6c7950726f746f7348035a226769746875" .
-            "622e636f6d2f6d6573687461737469632f676f2f67656e65726174656462" .
-            "0670726f746f33"
-        ));
+        $pool->internalAddGeneratedFile(
+            '
+ç
+localonly.protomodule_config.proto"∞
+LocalConfig$
+device (2.Config.DeviceConfig(
+position (2.Config.PositionConfig"
+power (2.Config.PowerConfig&
+network (2.Config.NetworkConfig&
+display (2.Config.DisplayConfig 
+lora (2.Config.LoRaConfig*
+	bluetooth (2.Config.BluetoothConfig
+version ("ƒ
+LocalModuleConfig&
+mqtt (2.ModuleConfig.MQTTConfig*
+serial (2.ModuleConfig.SerialConfigG
+external_notification (2(.ModuleConfig.ExternalNotificationConfig7
+store_forward (2 .ModuleConfig.StoreForwardConfig1
+
+range_test (2.ModuleConfig.RangeTestConfig0
+	telemetry (2.ModuleConfig.TelemetryConfig9
+canned_message (2!.ModuleConfig.CannedMessageConfig(
+audio	 (2.ModuleConfig.AudioConfig
+version (Bc
+com.geeksville.meshBLocalOnlyProtosHZ"github.com/meshtastic/go/generated™Meshtastic.Protobufsbproto3'
+        , true);
 
         static::$is_initialized = true;
     }

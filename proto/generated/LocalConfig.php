@@ -12,267 +12,340 @@ use Google\Protobuf\Internal\GPBUtil;
 class LocalConfig extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The part of the config that is specific to the Device
      *
      * Generated from protobuf field <code>.Config.DeviceConfig device = 1;</code>
      */
-    private $device = null;
+    protected $device = null;
     /**
-     *
      * The part of the config that is specific to the GPS Position
      *
      * Generated from protobuf field <code>.Config.PositionConfig position = 2;</code>
      */
-    private $position = null;
+    protected $position = null;
     /**
-     *
      * The part of the config that is specific to the Power settings
      *
      * Generated from protobuf field <code>.Config.PowerConfig power = 3;</code>
      */
-    private $power = null;
+    protected $power = null;
     /**
-     *
      * The part of the config that is specific to the Wifi Settings
      *
      * Generated from protobuf field <code>.Config.NetworkConfig network = 4;</code>
      */
-    private $network = null;
+    protected $network = null;
     /**
-     *
      * The part of the config that is specific to the Display
      *
      * Generated from protobuf field <code>.Config.DisplayConfig display = 5;</code>
      */
-    private $display = null;
+    protected $display = null;
     /**
-     *
      * The part of the config that is specific to the Lora Radio
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora = 6;</code>
      */
-    private $lora = null;
+    protected $lora = null;
     /**
-     *
      * The part of the config that is specific to the Bluetooth settings
      *
      * Generated from protobuf field <code>.Config.BluetoothConfig bluetooth = 7;</code>
      */
-    private $bluetooth = null;
+    protected $bluetooth = null;
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
      *
      * Generated from protobuf field <code>uint32 version = 8;</code>
      */
-    private $version = 0;
+    protected $version = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Config\DeviceConfig $device
+     *           The part of the config that is specific to the Device
+     *     @type \Config\PositionConfig $position
+     *           The part of the config that is specific to the GPS Position
+     *     @type \Config\PowerConfig $power
+     *           The part of the config that is specific to the Power settings
+     *     @type \Config\NetworkConfig $network
+     *           The part of the config that is specific to the Wifi Settings
+     *     @type \Config\DisplayConfig $display
+     *           The part of the config that is specific to the Display
+     *     @type \Config\LoRaConfig $lora
+     *           The part of the config that is specific to the Lora Radio
+     *     @type \Config\BluetoothConfig $bluetooth
+     *           The part of the config that is specific to the Bluetooth settings
+     *     @type int $version
+     *           A version integer used to invalidate old save files when we make
+     *           incompatible changes This integer is set at build time and is private to
+     *           NodeDB.cpp in the device code.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Localonly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The part of the config that is specific to the Device
      *
      * Generated from protobuf field <code>.Config.DeviceConfig device = 1;</code>
-     * @return \Config_DeviceConfig
+     * @return \Config\DeviceConfig|null
      */
     public function getDevice()
     {
         return $this->device;
     }
 
+    public function hasDevice()
+    {
+        return isset($this->device);
+    }
+
+    public function clearDevice()
+    {
+        unset($this->device);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Device
      *
      * Generated from protobuf field <code>.Config.DeviceConfig device = 1;</code>
-     * @param \Config_DeviceConfig $var
+     * @param \Config\DeviceConfig $var
      * @return $this
      */
     public function setDevice($var)
     {
-        GPBUtil::checkMessage($var, \Config_DeviceConfig::class);
+        GPBUtil::checkMessage($var, \Config\DeviceConfig::class);
         $this->device = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the GPS Position
      *
      * Generated from protobuf field <code>.Config.PositionConfig position = 2;</code>
-     * @return \Config_PositionConfig
+     * @return \Config\PositionConfig|null
      */
     public function getPosition()
     {
         return $this->position;
     }
 
+    public function hasPosition()
+    {
+        return isset($this->position);
+    }
+
+    public function clearPosition()
+    {
+        unset($this->position);
+    }
+
     /**
-     *
      * The part of the config that is specific to the GPS Position
      *
      * Generated from protobuf field <code>.Config.PositionConfig position = 2;</code>
-     * @param \Config_PositionConfig $var
+     * @param \Config\PositionConfig $var
      * @return $this
      */
     public function setPosition($var)
     {
-        GPBUtil::checkMessage($var, \Config_PositionConfig::class);
+        GPBUtil::checkMessage($var, \Config\PositionConfig::class);
         $this->position = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Power settings
      *
      * Generated from protobuf field <code>.Config.PowerConfig power = 3;</code>
-     * @return \Config_PowerConfig
+     * @return \Config\PowerConfig|null
      */
     public function getPower()
     {
         return $this->power;
     }
 
+    public function hasPower()
+    {
+        return isset($this->power);
+    }
+
+    public function clearPower()
+    {
+        unset($this->power);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Power settings
      *
      * Generated from protobuf field <code>.Config.PowerConfig power = 3;</code>
-     * @param \Config_PowerConfig $var
+     * @param \Config\PowerConfig $var
      * @return $this
      */
     public function setPower($var)
     {
-        GPBUtil::checkMessage($var, \Config_PowerConfig::class);
+        GPBUtil::checkMessage($var, \Config\PowerConfig::class);
         $this->power = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Wifi Settings
      *
      * Generated from protobuf field <code>.Config.NetworkConfig network = 4;</code>
-     * @return \Config_NetworkConfig
+     * @return \Config\NetworkConfig|null
      */
     public function getNetwork()
     {
         return $this->network;
     }
 
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Wifi Settings
      *
      * Generated from protobuf field <code>.Config.NetworkConfig network = 4;</code>
-     * @param \Config_NetworkConfig $var
+     * @param \Config\NetworkConfig $var
      * @return $this
      */
     public function setNetwork($var)
     {
-        GPBUtil::checkMessage($var, \Config_NetworkConfig::class);
+        GPBUtil::checkMessage($var, \Config\NetworkConfig::class);
         $this->network = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Display
      *
      * Generated from protobuf field <code>.Config.DisplayConfig display = 5;</code>
-     * @return \Config_DisplayConfig
+     * @return \Config\DisplayConfig|null
      */
     public function getDisplay()
     {
         return $this->display;
     }
 
+    public function hasDisplay()
+    {
+        return isset($this->display);
+    }
+
+    public function clearDisplay()
+    {
+        unset($this->display);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Display
      *
      * Generated from protobuf field <code>.Config.DisplayConfig display = 5;</code>
-     * @param \Config_DisplayConfig $var
+     * @param \Config\DisplayConfig $var
      * @return $this
      */
     public function setDisplay($var)
     {
-        GPBUtil::checkMessage($var, \Config_DisplayConfig::class);
+        GPBUtil::checkMessage($var, \Config\DisplayConfig::class);
         $this->display = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Lora Radio
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora = 6;</code>
-     * @return \Config_LoRaConfig
+     * @return \Config\LoRaConfig|null
      */
     public function getLora()
     {
         return $this->lora;
     }
 
+    public function hasLora()
+    {
+        return isset($this->lora);
+    }
+
+    public function clearLora()
+    {
+        unset($this->lora);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Lora Radio
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora = 6;</code>
-     * @param \Config_LoRaConfig $var
+     * @param \Config\LoRaConfig $var
      * @return $this
      */
     public function setLora($var)
     {
-        GPBUtil::checkMessage($var, \Config_LoRaConfig::class);
+        GPBUtil::checkMessage($var, \Config\LoRaConfig::class);
         $this->lora = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Bluetooth settings
      *
      * Generated from protobuf field <code>.Config.BluetoothConfig bluetooth = 7;</code>
-     * @return \Config_BluetoothConfig
+     * @return \Config\BluetoothConfig|null
      */
     public function getBluetooth()
     {
         return $this->bluetooth;
     }
 
+    public function hasBluetooth()
+    {
+        return isset($this->bluetooth);
+    }
+
+    public function clearBluetooth()
+    {
+        unset($this->bluetooth);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Bluetooth settings
      *
      * Generated from protobuf field <code>.Config.BluetoothConfig bluetooth = 7;</code>
-     * @param \Config_BluetoothConfig $var
+     * @param \Config\BluetoothConfig $var
      * @return $this
      */
     public function setBluetooth($var)
     {
-        GPBUtil::checkMessage($var, \Config_BluetoothConfig::class);
+        GPBUtil::checkMessage($var, \Config\BluetoothConfig::class);
         $this->bluetooth = $var;
 
         return $this;
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
@@ -286,7 +359,6 @@ class LocalConfig extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.

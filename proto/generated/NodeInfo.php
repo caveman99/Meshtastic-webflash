@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * The bluetooth to device link:
  * Old BTLE protocol docs from TODO, merge in above and make real docs...
  * use protocol buffers, and NanoPB
@@ -30,57 +29,72 @@ use Google\Protobuf\Internal\GPBUtil;
 class NodeInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The node number
      *
      * Generated from protobuf field <code>uint32 num = 1;</code>
      */
-    private $num = 0;
+    protected $num = 0;
     /**
-     *
      * The user info for this node
      *
      * Generated from protobuf field <code>.User user = 2;</code>
      */
-    private $user = null;
+    protected $user = null;
     /**
-     *
      * This position data. Note: before 1.2.14 we would also store the last time we've heard from this node in position.time, that is no longer true.
      * Position.time now indicates the last time we received a POSITION from that node.
      *
      * Generated from protobuf field <code>.Position position = 3;</code>
      */
-    private $position = null;
+    protected $position = null;
     /**
-     *
      * Returns the Signal-to-noise ratio (SNR) of the last received message,
      * as measured by the receiver. Return SNR of the last received message in dB
      *
      * Generated from protobuf field <code>float snr = 4;</code>
      */
-    private $snr = 0.0;
+    protected $snr = 0.0;
     /**
-     *
      * Set to indicate the last time we received a packet from this node
      *
      * Generated from protobuf field <code>fixed32 last_heard = 5;</code>
      */
-    private $last_heard = 0;
+    protected $last_heard = 0;
     /**
-     *
      * The latest device metrics for the node.
      *
      * Generated from protobuf field <code>.DeviceMetrics device_metrics = 6;</code>
      */
-    private $device_metrics = null;
+    protected $device_metrics = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $num
+     *           The node number
+     *     @type \User $user
+     *           The user info for this node
+     *     @type \Position $position
+     *           This position data. Note: before 1.2.14 we would also store the last time we've heard from this node in position.time, that is no longer true.
+     *           Position.time now indicates the last time we received a POSITION from that node.
+     *     @type float $snr
+     *           Returns the Signal-to-noise ratio (SNR) of the last received message,
+     *           as measured by the receiver. Return SNR of the last received message in dB
+     *     @type int $last_heard
+     *           Set to indicate the last time we received a packet from this node
+     *     @type \DeviceMetrics $device_metrics
+     *           The latest device metrics for the node.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The node number
      *
      * Generated from protobuf field <code>uint32 num = 1;</code>
@@ -92,7 +106,6 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The node number
      *
      * Generated from protobuf field <code>uint32 num = 1;</code>
@@ -108,19 +121,27 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The user info for this node
      *
      * Generated from protobuf field <code>.User user = 2;</code>
-     * @return \User
+     * @return \User|null
      */
     public function getUser()
     {
         return $this->user;
     }
 
+    public function hasUser()
+    {
+        return isset($this->user);
+    }
+
+    public function clearUser()
+    {
+        unset($this->user);
+    }
+
     /**
-     *
      * The user info for this node
      *
      * Generated from protobuf field <code>.User user = 2;</code>
@@ -136,20 +157,28 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This position data. Note: before 1.2.14 we would also store the last time we've heard from this node in position.time, that is no longer true.
      * Position.time now indicates the last time we received a POSITION from that node.
      *
      * Generated from protobuf field <code>.Position position = 3;</code>
-     * @return \Position
+     * @return \Position|null
      */
     public function getPosition()
     {
         return $this->position;
     }
 
+    public function hasPosition()
+    {
+        return isset($this->position);
+    }
+
+    public function clearPosition()
+    {
+        unset($this->position);
+    }
+
     /**
-     *
      * This position data. Note: before 1.2.14 we would also store the last time we've heard from this node in position.time, that is no longer true.
      * Position.time now indicates the last time we received a POSITION from that node.
      *
@@ -166,7 +195,6 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Returns the Signal-to-noise ratio (SNR) of the last received message,
      * as measured by the receiver. Return SNR of the last received message in dB
      *
@@ -179,7 +207,6 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Returns the Signal-to-noise ratio (SNR) of the last received message,
      * as measured by the receiver. Return SNR of the last received message in dB
      *
@@ -196,7 +223,6 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Set to indicate the last time we received a packet from this node
      *
      * Generated from protobuf field <code>fixed32 last_heard = 5;</code>
@@ -208,7 +234,6 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Set to indicate the last time we received a packet from this node
      *
      * Generated from protobuf field <code>fixed32 last_heard = 5;</code>
@@ -224,19 +249,27 @@ class NodeInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The latest device metrics for the node.
      *
      * Generated from protobuf field <code>.DeviceMetrics device_metrics = 6;</code>
-     * @return \DeviceMetrics
+     * @return \DeviceMetrics|null
      */
     public function getDeviceMetrics()
     {
         return $this->device_metrics;
     }
 
+    public function hasDeviceMetrics()
+    {
+        return isset($this->device_metrics);
+    }
+
+    public function clearDeviceMetrics()
+    {
+        unset($this->device_metrics);
+    }
+
     /**
-     *
      * The latest device metrics for the node.
      *
      * Generated from protobuf field <code>.DeviceMetrics device_metrics = 6;</code>

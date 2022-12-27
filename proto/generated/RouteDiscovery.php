@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * A message used in our Dynamic Source Routing protocol (RFC 4728 based)
  *
  * Generated from protobuf message <code>RouteDiscovery</code>
@@ -15,20 +14,28 @@ use Google\Protobuf\Internal\GPBUtil;
 class RouteDiscovery extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The list of nodenums this packet has visited so far
      *
      * Generated from protobuf field <code>repeated fixed32 route = 1;</code>
      */
     private $route;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $route
+     *           The list of nodenums this packet has visited so far
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The list of nodenums this packet has visited so far
      *
      * Generated from protobuf field <code>repeated fixed32 route = 1;</code>
@@ -40,11 +47,10 @@ class RouteDiscovery extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The list of nodenums this packet has visited so far
      *
      * Generated from protobuf field <code>repeated fixed32 route = 1;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setRoute($var)

@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * (Formerly called SubPacket)
  * The payload portion fo a packet, this is the actual bytes that are sent
  * inside a radio packet (because from/to are broken out by the comms library)
@@ -17,30 +16,26 @@ use Google\Protobuf\Internal\GPBUtil;
 class Data extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Formerly named typ and of type Type
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
      */
-    private $portnum = 0;
+    protected $portnum = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>bytes payload = 2;</code>
      */
-    private $payload = '';
+    protected $payload = '';
     /**
-     *
      * Not normally used, but for testing a sender can request that recipient
      * responds in kind (i.e. if it received a position, it should unicast back it's position).
      * Note: that if you set this on a broadcast you will receive many replies.
      *
      * Generated from protobuf field <code>bool want_response = 3;</code>
      */
-    private $want_response = false;
+    protected $want_response = false;
     /**
-     *
      * The address of the destination node.
      * This field is is filled in by the mesh radio device software, application
      * layer software should never need it.
@@ -49,47 +44,76 @@ class Data extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>fixed32 dest = 4;</code>
      */
-    private $dest = 0;
+    protected $dest = 0;
     /**
-     *
      * The address of the original sender for this message.
      * This field should _only_ be populated for reliable multihop packets (to keep
      * packets small).
      *
      * Generated from protobuf field <code>fixed32 source = 5;</code>
      */
-    private $source = 0;
+    protected $source = 0;
     /**
-     *
      * Only used in routing or response messages.
      * Indicates the original message ID that this message is reporting failure on. (formerly called original_id)
      *
      * Generated from protobuf field <code>fixed32 request_id = 6;</code>
      */
-    private $request_id = 0;
+    protected $request_id = 0;
     /**
-     *
      * If set, this message is intened to be a reply to a previously sent message with the defined id.
      *
      * Generated from protobuf field <code>fixed32 reply_id = 7;</code>
      */
-    private $reply_id = 0;
+    protected $reply_id = 0;
     /**
-     *
      * Defaults to false. If true, then what is in the payload should be treated as an emoji like giving
      * a message a heart or poop emoji.
      *
      * Generated from protobuf field <code>fixed32 emoji = 8;</code>
      */
-    private $emoji = 0;
+    protected $emoji = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $portnum
+     *           Formerly named typ and of type Type
+     *     @type string $payload
+     *           TODO: REPLACE
+     *     @type bool $want_response
+     *           Not normally used, but for testing a sender can request that recipient
+     *           responds in kind (i.e. if it received a position, it should unicast back it's position).
+     *           Note: that if you set this on a broadcast you will receive many replies.
+     *     @type int $dest
+     *           The address of the destination node.
+     *           This field is is filled in by the mesh radio device software, application
+     *           layer software should never need it.
+     *           RouteDiscovery messages _must_ populate this.
+     *           Other message types might need to if they are doing multihop routing.
+     *     @type int $source
+     *           The address of the original sender for this message.
+     *           This field should _only_ be populated for reliable multihop packets (to keep
+     *           packets small).
+     *     @type int $request_id
+     *           Only used in routing or response messages.
+     *           Indicates the original message ID that this message is reporting failure on. (formerly called original_id)
+     *     @type int $reply_id
+     *           If set, this message is intened to be a reply to a previously sent message with the defined id.
+     *     @type int $emoji
+     *           Defaults to false. If true, then what is in the payload should be treated as an emoji like giving
+     *           a message a heart or poop emoji.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Formerly named typ and of type Type
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
@@ -101,7 +125,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Formerly named typ and of type Type
      *
      * Generated from protobuf field <code>.PortNum portnum = 1;</code>
@@ -117,7 +140,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>bytes payload = 2;</code>
@@ -129,7 +151,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>bytes payload = 2;</code>
@@ -145,7 +166,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Not normally used, but for testing a sender can request that recipient
      * responds in kind (i.e. if it received a position, it should unicast back it's position).
      * Note: that if you set this on a broadcast you will receive many replies.
@@ -159,7 +179,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Not normally used, but for testing a sender can request that recipient
      * responds in kind (i.e. if it received a position, it should unicast back it's position).
      * Note: that if you set this on a broadcast you will receive many replies.
@@ -177,7 +196,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The address of the destination node.
      * This field is is filled in by the mesh radio device software, application
      * layer software should never need it.
@@ -193,7 +211,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The address of the destination node.
      * This field is is filled in by the mesh radio device software, application
      * layer software should never need it.
@@ -213,7 +230,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The address of the original sender for this message.
      * This field should _only_ be populated for reliable multihop packets (to keep
      * packets small).
@@ -227,7 +243,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The address of the original sender for this message.
      * This field should _only_ be populated for reliable multihop packets (to keep
      * packets small).
@@ -245,7 +260,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Only used in routing or response messages.
      * Indicates the original message ID that this message is reporting failure on. (formerly called original_id)
      *
@@ -258,7 +272,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Only used in routing or response messages.
      * Indicates the original message ID that this message is reporting failure on. (formerly called original_id)
      *
@@ -275,7 +288,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If set, this message is intened to be a reply to a previously sent message with the defined id.
      *
      * Generated from protobuf field <code>fixed32 reply_id = 7;</code>
@@ -287,7 +299,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If set, this message is intened to be a reply to a previously sent message with the defined id.
      *
      * Generated from protobuf field <code>fixed32 reply_id = 7;</code>
@@ -303,7 +314,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Defaults to false. If true, then what is in the payload should be treated as an emoji like giving
      * a message a heart or poop emoji.
      *
@@ -316,7 +326,6 @@ class Data extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Defaults to false. If true, then what is in the payload should be treated as an emoji like giving
      * a message a heart or poop emoji.
      *

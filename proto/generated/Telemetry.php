@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Types of Measurements the telemetry module is equipped to handle
  *
  * Generated from protobuf message <code>Telemetry</code>
@@ -15,7 +14,6 @@ use Google\Protobuf\Internal\GPBUtil;
 class Telemetry extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -24,16 +22,33 @@ class Telemetry extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>fixed32 time = 1;</code>
      */
-    private $time = 0;
+    protected $time = 0;
     protected $variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $time
+     *           This is usually not sent over the mesh (to save space), but it is sent
+     *           from the phone so that the local device can set its RTC If it is sent over
+     *           the mesh (because there are devices on the mesh without GPS), it will only
+     *           be sent by devices which has a hardware GPS clock (IE Mobile Phone).
+     *           seconds since 1970
+     *     @type \DeviceMetrics $device_metrics
+     *           Key native device metrics such as battery level
+     *     @type \EnvironmentMetrics $environment_metrics
+     *           Weather station or other environmental metrics
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Telemetry::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -49,7 +64,6 @@ class Telemetry extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * This is usually not sent over the mesh (to save space), but it is sent
      * from the phone so that the local device can set its RTC If it is sent over
      * the mesh (because there are devices on the mesh without GPS), it will only
@@ -69,19 +83,22 @@ class Telemetry extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Key native device metrics such as battery level
      *
      * Generated from protobuf field <code>.DeviceMetrics device_metrics = 2;</code>
-     * @return \DeviceMetrics
+     * @return \DeviceMetrics|null
      */
     public function getDeviceMetrics()
     {
         return $this->readOneof(2);
     }
 
+    public function hasDeviceMetrics()
+    {
+        return $this->hasOneof(2);
+    }
+
     /**
-     *
      * Key native device metrics such as battery level
      *
      * Generated from protobuf field <code>.DeviceMetrics device_metrics = 2;</code>
@@ -97,19 +114,22 @@ class Telemetry extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Weather station or other environmental metrics
      *
      * Generated from protobuf field <code>.EnvironmentMetrics environment_metrics = 3;</code>
-     * @return \EnvironmentMetrics
+     * @return \EnvironmentMetrics|null
      */
     public function getEnvironmentMetrics()
     {
         return $this->readOneof(3);
     }
 
+    public function hasEnvironmentMetrics()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
-     *
      * Weather station or other environmental metrics
      *
      * Generated from protobuf field <code>.EnvironmentMetrics environment_metrics = 3;</code>

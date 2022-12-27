@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * TODO: REPLACE
  *
  * Generated from protobuf message <code>StoreAndForward</code>
@@ -15,41 +14,52 @@ use Google\Protobuf\Internal\GPBUtil;
 class StoreAndForward extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.RequestResponse rr = 1;</code>
      */
-    private $rr = 0;
+    protected $rr = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Statistics stats = 2;</code>
      */
-    private $stats = null;
+    protected $stats = null;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.History history = 3;</code>
      */
-    private $history = null;
+    protected $history = null;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Heartbeat heartbeat = 4;</code>
      */
-    private $heartbeat = null;
+    protected $heartbeat = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $rr
+     *           TODO: REPLACE
+     *     @type \StoreAndForward\Statistics $stats
+     *           TODO: REPLACE
+     *     @type \StoreAndForward\History $history
+     *           TODO: REPLACE
+     *     @type \StoreAndForward\Heartbeat $heartbeat
+     *           TODO: REPLACE
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Storeforward::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.RequestResponse rr = 1;</code>
@@ -61,7 +71,6 @@ class StoreAndForward extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.RequestResponse rr = 1;</code>
@@ -70,91 +79,115 @@ class StoreAndForward extends \Google\Protobuf\Internal\Message
      */
     public function setRr($var)
     {
-        GPBUtil::checkEnum($var, \StoreAndForward_RequestResponse::class);
+        GPBUtil::checkEnum($var, \StoreAndForward\RequestResponse::class);
         $this->rr = $var;
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Statistics stats = 2;</code>
-     * @return \StoreAndForward_Statistics
+     * @return \StoreAndForward\Statistics|null
      */
     public function getStats()
     {
         return $this->stats;
     }
 
+    public function hasStats()
+    {
+        return isset($this->stats);
+    }
+
+    public function clearStats()
+    {
+        unset($this->stats);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Statistics stats = 2;</code>
-     * @param \StoreAndForward_Statistics $var
+     * @param \StoreAndForward\Statistics $var
      * @return $this
      */
     public function setStats($var)
     {
-        GPBUtil::checkMessage($var, \StoreAndForward_Statistics::class);
+        GPBUtil::checkMessage($var, \StoreAndForward\Statistics::class);
         $this->stats = $var;
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.History history = 3;</code>
-     * @return \StoreAndForward_History
+     * @return \StoreAndForward\History|null
      */
     public function getHistory()
     {
         return $this->history;
     }
 
+    public function hasHistory()
+    {
+        return isset($this->history);
+    }
+
+    public function clearHistory()
+    {
+        unset($this->history);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.History history = 3;</code>
-     * @param \StoreAndForward_History $var
+     * @param \StoreAndForward\History $var
      * @return $this
      */
     public function setHistory($var)
     {
-        GPBUtil::checkMessage($var, \StoreAndForward_History::class);
+        GPBUtil::checkMessage($var, \StoreAndForward\History::class);
         $this->history = $var;
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Heartbeat heartbeat = 4;</code>
-     * @return \StoreAndForward_Heartbeat
+     * @return \StoreAndForward\Heartbeat|null
      */
     public function getHeartbeat()
     {
         return $this->heartbeat;
     }
 
+    public function hasHeartbeat()
+    {
+        return isset($this->heartbeat);
+    }
+
+    public function clearHeartbeat()
+    {
+        unset($this->heartbeat);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.StoreAndForward.Heartbeat heartbeat = 4;</code>
-     * @param \StoreAndForward_Heartbeat $var
+     * @param \StoreAndForward\Heartbeat $var
      * @return $this
      */
     public function setHeartbeat($var)
     {
-        GPBUtil::checkMessage($var, \StoreAndForward_Heartbeat::class);
+        GPBUtil::checkMessage($var, \StoreAndForward\Heartbeat::class);
         $this->heartbeat = $var;
 
         return $this;

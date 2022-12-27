@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Debug output from the device.
  * To minimize the size of records inside the device code, if a time/source/level is not set
  * on the message it is assumed to be a continuation of the previously sent message.
@@ -19,41 +18,52 @@ use Google\Protobuf\Internal\GPBUtil;
 class LogRecord extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Log levels, chosen to match python logging conventions.
      *
      * Generated from protobuf field <code>string message = 1;</code>
      */
-    private $message = '';
+    protected $message = '';
     /**
-     *
      * Seconds since 1970 - or 0 for unknown/unset
      *
      * Generated from protobuf field <code>fixed32 time = 2;</code>
      */
-    private $time = 0;
+    protected $time = 0;
     /**
-     *
      * Usually based on thread name - if known
      *
      * Generated from protobuf field <code>string source = 3;</code>
      */
-    private $source = '';
+    protected $source = '';
     /**
-     *
      * Not yet set
      *
      * Generated from protobuf field <code>.LogRecord.Level level = 4;</code>
      */
-    private $level = 0;
+    protected $level = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $message
+     *           Log levels, chosen to match python logging conventions.
+     *     @type int $time
+     *           Seconds since 1970 - or 0 for unknown/unset
+     *     @type string $source
+     *           Usually based on thread name - if known
+     *     @type int $level
+     *           Not yet set
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Log levels, chosen to match python logging conventions.
      *
      * Generated from protobuf field <code>string message = 1;</code>
@@ -65,7 +75,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Log levels, chosen to match python logging conventions.
      *
      * Generated from protobuf field <code>string message = 1;</code>
@@ -81,7 +90,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Seconds since 1970 - or 0 for unknown/unset
      *
      * Generated from protobuf field <code>fixed32 time = 2;</code>
@@ -93,7 +101,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Seconds since 1970 - or 0 for unknown/unset
      *
      * Generated from protobuf field <code>fixed32 time = 2;</code>
@@ -109,7 +116,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Usually based on thread name - if known
      *
      * Generated from protobuf field <code>string source = 3;</code>
@@ -121,7 +127,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Usually based on thread name - if known
      *
      * Generated from protobuf field <code>string source = 3;</code>
@@ -137,7 +142,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Not yet set
      *
      * Generated from protobuf field <code>.LogRecord.Level level = 4;</code>
@@ -149,7 +153,6 @@ class LogRecord extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Not yet set
      *
      * Generated from protobuf field <code>.LogRecord.Level level = 4;</code>
@@ -158,7 +161,7 @@ class LogRecord extends \Google\Protobuf\Internal\Message
      */
     public function setLevel($var)
     {
-        GPBUtil::checkEnum($var, \LogRecord_Level::class);
+        GPBUtil::checkEnum($var, \LogRecord\Level::class);
         $this->level = $var;
 
         return $this;

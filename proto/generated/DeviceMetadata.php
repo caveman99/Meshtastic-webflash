@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Device metadata response 
  *
  * Generated from protobuf message <code>DeviceMetadata</code>
@@ -15,27 +14,68 @@ use Google\Protobuf\Internal\GPBUtil;
 class DeviceMetadata extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Device firmware version string
      *
      * Generated from protobuf field <code>string firmware_version = 1;</code>
      */
-    private $firmware_version = '';
+    protected $firmware_version = '';
     /**
-     *
      * Device state version
      *
      * Generated from protobuf field <code>uint32 device_state_version = 2;</code>
      */
-    private $device_state_version = 0;
+    protected $device_state_version = 0;
+    /**
+     * Indicates whether the device can shutdown CPU natively or via power management chip
+     *
+     * Generated from protobuf field <code>bool canShutdown = 3;</code>
+     */
+    protected $canShutdown = false;
+    /**
+     * Indicates that the device has native wifi capability
+     *
+     * Generated from protobuf field <code>bool hasWifi = 4;</code>
+     */
+    protected $hasWifi = false;
+    /**
+     * Indicates that the device has native bluetooth capability
+     *
+     * Generated from protobuf field <code>bool hasBluetooth = 5;</code>
+     */
+    protected $hasBluetooth = false;
+    /**
+     * Indicates that the device has an ethernet peripheral
+     *
+     * Generated from protobuf field <code>bool hasEthernet = 6;</code>
+     */
+    protected $hasEthernet = false;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $firmware_version
+     *           Device firmware version string
+     *     @type int $device_state_version
+     *           Device state version
+     *     @type bool $canShutdown
+     *           Indicates whether the device can shutdown CPU natively or via power management chip
+     *     @type bool $hasWifi
+     *           Indicates that the device has native wifi capability
+     *     @type bool $hasBluetooth
+     *           Indicates that the device has native bluetooth capability
+     *     @type bool $hasEthernet
+     *           Indicates that the device has an ethernet peripheral
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\DeviceMetadata::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Device firmware version string
      *
      * Generated from protobuf field <code>string firmware_version = 1;</code>
@@ -47,7 +87,6 @@ class DeviceMetadata extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Device firmware version string
      *
      * Generated from protobuf field <code>string firmware_version = 1;</code>
@@ -63,7 +102,6 @@ class DeviceMetadata extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Device state version
      *
      * Generated from protobuf field <code>uint32 device_state_version = 2;</code>
@@ -75,7 +113,6 @@ class DeviceMetadata extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Device state version
      *
      * Generated from protobuf field <code>uint32 device_state_version = 2;</code>
@@ -86,6 +123,110 @@ class DeviceMetadata extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->device_state_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Indicates whether the device can shutdown CPU natively or via power management chip
+     *
+     * Generated from protobuf field <code>bool canShutdown = 3;</code>
+     * @return bool
+     */
+    public function getCanShutdown()
+    {
+        return $this->canShutdown;
+    }
+
+    /**
+     * Indicates whether the device can shutdown CPU natively or via power management chip
+     *
+     * Generated from protobuf field <code>bool canShutdown = 3;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setCanShutdown($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->canShutdown = $var;
+
+        return $this;
+    }
+
+    /**
+     * Indicates that the device has native wifi capability
+     *
+     * Generated from protobuf field <code>bool hasWifi = 4;</code>
+     * @return bool
+     */
+    public function getHasWifi()
+    {
+        return $this->hasWifi;
+    }
+
+    /**
+     * Indicates that the device has native wifi capability
+     *
+     * Generated from protobuf field <code>bool hasWifi = 4;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasWifi($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->hasWifi = $var;
+
+        return $this;
+    }
+
+    /**
+     * Indicates that the device has native bluetooth capability
+     *
+     * Generated from protobuf field <code>bool hasBluetooth = 5;</code>
+     * @return bool
+     */
+    public function getHasBluetooth()
+    {
+        return $this->hasBluetooth;
+    }
+
+    /**
+     * Indicates that the device has native bluetooth capability
+     *
+     * Generated from protobuf field <code>bool hasBluetooth = 5;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasBluetooth($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->hasBluetooth = $var;
+
+        return $this;
+    }
+
+    /**
+     * Indicates that the device has an ethernet peripheral
+     *
+     * Generated from protobuf field <code>bool hasEthernet = 6;</code>
+     * @return bool
+     */
+    public function getHasEthernet()
+    {
+        return $this->hasEthernet;
+    }
+
+    /**
+     * Indicates that the device has an ethernet peripheral
+     *
+     * Generated from protobuf field <code>bool hasEthernet = 6;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasEthernet($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->hasEthernet = $var;
 
         return $this;
     }

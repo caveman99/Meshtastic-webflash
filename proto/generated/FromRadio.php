@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Packets from the radio to the phone will appear on the fromRadio characteristic.
  * It will support READ and NOTIFY. When a new packet arrives the device will BLE notify?
  * It will sit in that descriptor until consumed by the phone,
@@ -18,22 +17,57 @@ use Google\Protobuf\Internal\GPBUtil;
 class FromRadio extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The packet id, used to allow the phone to request missing read packets from the FIFO,
      * see our bluetooth docs
      *
      * Generated from protobuf field <code>uint32 id = 1;</code>
      */
-    private $id = 0;
+    protected $id = 0;
     protected $payload_variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $id
+     *           The packet id, used to allow the phone to request missing read packets from the FIFO,
+     *           see our bluetooth docs
+     *     @type \MeshPacket $packet
+     *           Log levels, chosen to match python logging conventions.
+     *     @type \MyNodeInfo $my_info
+     *           Tells the phone what our node number is, can be -1 if we've not yet joined a mesh.
+     *           NOTE: This ID must not change - to keep (minimal) compatibility with <1.2 version of android apps.
+     *     @type \NodeInfo $node_info
+     *           One packet is sent for each node in the on radio DB
+     *           starts over with the first node in our DB
+     *     @type \Config $config
+     *           Include a part of the config (was: RadioConfig radio)
+     *     @type \LogRecord $log_record
+     *           Set to send debug console output over our protobuf stream
+     *     @type int $config_complete_id
+     *           Sent as true once the device has finished sending all of the responses to want_config
+     *           recipient should check if this ID matches our original request nonce, if
+     *           not, it means your config responses haven't started yet.
+     *           NOTE: This ID must not change - to keep (minimal) compatibility with <1.2 version of android apps.
+     *     @type bool $rebooted
+     *           Sent to tell clients the radio has just rebooted.
+     *           Set to true if present.
+     *           Not used on all transports, currently just used for the serial console.
+     *           NOTE: This ID must not change - to keep (minimal) compatibility with <1.2 version of android apps.
+     *     @type \ModuleConfig $moduleConfig
+     *           Include module config
+     *     @type \Channel $channel
+     *           One packet is sent for each channel
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The packet id, used to allow the phone to request missing read packets from the FIFO,
      * see our bluetooth docs
      *
@@ -46,7 +80,6 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The packet id, used to allow the phone to request missing read packets from the FIFO,
      * see our bluetooth docs
      *
@@ -63,19 +96,22 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Log levels, chosen to match python logging conventions.
      *
      * Generated from protobuf field <code>.MeshPacket packet = 2;</code>
-     * @return \MeshPacket
+     * @return \MeshPacket|null
      */
     public function getPacket()
     {
         return $this->readOneof(2);
     }
 
+    public function hasPacket()
+    {
+        return $this->hasOneof(2);
+    }
+
     /**
-     *
      * Log levels, chosen to match python logging conventions.
      *
      * Generated from protobuf field <code>.MeshPacket packet = 2;</code>
@@ -91,20 +127,23 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Tells the phone what our node number is, can be -1 if we've not yet joined a mesh.
      * NOTE: This ID must not change - to keep (minimal) compatibility with <1.2 version of android apps.
      *
      * Generated from protobuf field <code>.MyNodeInfo my_info = 3;</code>
-     * @return \MyNodeInfo
+     * @return \MyNodeInfo|null
      */
     public function getMyInfo()
     {
         return $this->readOneof(3);
     }
 
+    public function hasMyInfo()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
-     *
      * Tells the phone what our node number is, can be -1 if we've not yet joined a mesh.
      * NOTE: This ID must not change - to keep (minimal) compatibility with <1.2 version of android apps.
      *
@@ -121,20 +160,23 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * One packet is sent for each node in the on radio DB
      * starts over with the first node in our DB
      *
      * Generated from protobuf field <code>.NodeInfo node_info = 4;</code>
-     * @return \NodeInfo
+     * @return \NodeInfo|null
      */
     public function getNodeInfo()
     {
         return $this->readOneof(4);
     }
 
+    public function hasNodeInfo()
+    {
+        return $this->hasOneof(4);
+    }
+
     /**
-     *
      * One packet is sent for each node in the on radio DB
      * starts over with the first node in our DB
      *
@@ -151,19 +193,22 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Include a part of the config (was: RadioConfig radio)
      *
      * Generated from protobuf field <code>.Config config = 5;</code>
-     * @return \Config
+     * @return \Config|null
      */
     public function getConfig()
     {
         return $this->readOneof(5);
     }
 
+    public function hasConfig()
+    {
+        return $this->hasOneof(5);
+    }
+
     /**
-     *
      * Include a part of the config (was: RadioConfig radio)
      *
      * Generated from protobuf field <code>.Config config = 5;</code>
@@ -179,19 +224,22 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Set to send debug console output over our protobuf stream
      *
      * Generated from protobuf field <code>.LogRecord log_record = 6;</code>
-     * @return \LogRecord
+     * @return \LogRecord|null
      */
     public function getLogRecord()
     {
         return $this->readOneof(6);
     }
 
+    public function hasLogRecord()
+    {
+        return $this->hasOneof(6);
+    }
+
     /**
-     *
      * Set to send debug console output over our protobuf stream
      *
      * Generated from protobuf field <code>.LogRecord log_record = 6;</code>
@@ -207,7 +255,6 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Sent as true once the device has finished sending all of the responses to want_config
      * recipient should check if this ID matches our original request nonce, if
      * not, it means your config responses haven't started yet.
@@ -221,8 +268,12 @@ class FromRadio extends \Google\Protobuf\Internal\Message
         return $this->readOneof(7);
     }
 
+    public function hasConfigCompleteId()
+    {
+        return $this->hasOneof(7);
+    }
+
     /**
-     *
      * Sent as true once the device has finished sending all of the responses to want_config
      * recipient should check if this ID matches our original request nonce, if
      * not, it means your config responses haven't started yet.
@@ -241,7 +292,6 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Sent to tell clients the radio has just rebooted.
      * Set to true if present.
      * Not used on all transports, currently just used for the serial console.
@@ -255,8 +305,12 @@ class FromRadio extends \Google\Protobuf\Internal\Message
         return $this->readOneof(8);
     }
 
+    public function hasRebooted()
+    {
+        return $this->hasOneof(8);
+    }
+
     /**
-     *
      * Sent to tell clients the radio has just rebooted.
      * Set to true if present.
      * Not used on all transports, currently just used for the serial console.
@@ -275,19 +329,22 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Include module config
      *
      * Generated from protobuf field <code>.ModuleConfig moduleConfig = 9;</code>
-     * @return \ModuleConfig
+     * @return \ModuleConfig|null
      */
     public function getModuleConfig()
     {
         return $this->readOneof(9);
     }
 
+    public function hasModuleConfig()
+    {
+        return $this->hasOneof(9);
+    }
+
     /**
-     *
      * Include module config
      *
      * Generated from protobuf field <code>.ModuleConfig moduleConfig = 9;</code>
@@ -303,19 +360,22 @@ class FromRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * One packet is sent for each channel
      *
      * Generated from protobuf field <code>.Channel channel = 10;</code>
-     * @return \Channel
+     * @return \Channel|null
      */
     public function getChannel()
     {
         return $this->readOneof(10);
     }
 
+    public function hasChannel()
+    {
+        return $this->hasOneof(10);
+    }
+
     /**
-     *
      * One packet is sent for each channel
      *
      * Generated from protobuf field <code>.Channel channel = 10;</code>

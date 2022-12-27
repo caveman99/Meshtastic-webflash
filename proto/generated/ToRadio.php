@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Packets/commands to the radio will be written (reliably) to the toRadio characteristic.
  * Once the write completes the phone can assume it is handled.
  *
@@ -17,25 +16,51 @@ class ToRadio extends \Google\Protobuf\Internal\Message
 {
     protected $payload_variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \MeshPacket $packet
+     *           Send this packet on the mesh
+     *     @type int $want_config_id
+     *           Phone wants radio to send full node db to the phone, This is
+     *           typically the first packet sent to the radio when the phone gets a
+     *           bluetooth connection. The radio will respond by sending back a
+     *           MyNodeInfo, a owner, a radio config and a series of
+     *           FromRadio.node_infos, and config_complete
+     *           the integer you write into this field will be reported back in the
+     *           config_complete_id response this allows clients to never be confused by
+     *           a stale old partially sent config.
+     *     @type bool $disconnect
+     *           Tell API server we are disconnecting now.
+     *           This is useful for serial links where there is no hardware/protocol based notification that the client has dropped the link.
+     *           (Sending this message is optional for clients)
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Send this packet on the mesh
      *
      * Generated from protobuf field <code>.MeshPacket packet = 1;</code>
-     * @return \MeshPacket
+     * @return \MeshPacket|null
      */
     public function getPacket()
     {
         return $this->readOneof(1);
     }
 
+    public function hasPacket()
+    {
+        return $this->hasOneof(1);
+    }
+
     /**
-     *
      * Send this packet on the mesh
      *
      * Generated from protobuf field <code>.MeshPacket packet = 1;</code>
@@ -51,37 +76,6 @@ class ToRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
-     * Information about the peer, sent after the phone sneds want_config_id.
-     * Old clients do not send this, which is fine.
-     *
-     * Generated from protobuf field <code>.ToRadio.PeerInfo peer_info = 2;</code>
-     * @return \ToRadio_PeerInfo
-     */
-    public function getPeerInfo()
-    {
-        return $this->readOneof(2);
-    }
-
-    /**
-     *
-     * Information about the peer, sent after the phone sneds want_config_id.
-     * Old clients do not send this, which is fine.
-     *
-     * Generated from protobuf field <code>.ToRadio.PeerInfo peer_info = 2;</code>
-     * @param \ToRadio_PeerInfo $var
-     * @return $this
-     */
-    public function setPeerInfo($var)
-    {
-        GPBUtil::checkMessage($var, \ToRadio_PeerInfo::class);
-        $this->writeOneof(2, $var);
-
-        return $this;
-    }
-
-    /**
-     *
      * Phone wants radio to send full node db to the phone, This is
      * typically the first packet sent to the radio when the phone gets a
      * bluetooth connection. The radio will respond by sending back a
@@ -99,8 +93,12 @@ class ToRadio extends \Google\Protobuf\Internal\Message
         return $this->readOneof(3);
     }
 
+    public function hasWantConfigId()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
-     *
      * Phone wants radio to send full node db to the phone, This is
      * typically the first packet sent to the radio when the phone gets a
      * bluetooth connection. The radio will respond by sending back a
@@ -123,7 +121,6 @@ class ToRadio extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Tell API server we are disconnecting now.
      * This is useful for serial links where there is no hardware/protocol based notification that the client has dropped the link.
      * (Sending this message is optional for clients)
@@ -136,8 +133,12 @@ class ToRadio extends \Google\Protobuf\Internal\Message
         return $this->readOneof(4);
     }
 
+    public function hasDisconnect()
+    {
+        return $this->hasOneof(4);
+    }
+
     /**
-     *
      * Tell API server we are disconnecting now.
      * This is useful for serial links where there is no hardware/protocol based notification that the client has dropped the link.
      * (Sending this message is optional for clients)

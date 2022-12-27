@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Key native device metrics such as battery level
  *
  * Generated from protobuf message <code>DeviceMetrics</code>
@@ -15,41 +14,52 @@ use Google\Protobuf\Internal\GPBUtil;
 class DeviceMetrics extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * 1-100 (0 means powered)
      *
      * Generated from protobuf field <code>uint32 battery_level = 1;</code>
      */
-    private $battery_level = 0;
+    protected $battery_level = 0;
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 2;</code>
      */
-    private $voltage = 0.0;
+    protected $voltage = 0.0;
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 3;</code>
      */
-    private $channel_utilization = 0.0;
+    protected $channel_utilization = 0.0;
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 4;</code>
      */
-    private $air_util_tx = 0.0;
+    protected $air_util_tx = 0.0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $battery_level
+     *           1-100 (0 means powered)
+     *     @type float $voltage
+     *           Voltage measured
+     *     @type float $channel_utilization
+     *           Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+     *     @type float $air_util_tx
+     *           Percent of airtime for transmission used within the last hour.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Telemetry::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * 1-100 (0 means powered)
      *
      * Generated from protobuf field <code>uint32 battery_level = 1;</code>
@@ -61,7 +71,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * 1-100 (0 means powered)
      *
      * Generated from protobuf field <code>uint32 battery_level = 1;</code>
@@ -77,7 +86,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 2;</code>
@@ -89,7 +97,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 2;</code>
@@ -105,7 +112,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 3;</code>
@@ -117,7 +123,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
      *
      * Generated from protobuf field <code>float channel_utilization = 3;</code>
@@ -133,7 +138,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 4;</code>
@@ -145,7 +149,6 @@ class DeviceMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Percent of airtime for transmission used within the last hour.
      *
      * Generated from protobuf field <code>float air_util_tx = 4;</code>

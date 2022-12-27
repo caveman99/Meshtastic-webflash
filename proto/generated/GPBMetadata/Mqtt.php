@@ -15,15 +15,20 @@ class Mqtt
           return;
         }
         \GPBMetadata\Mesh::initOnce();
-        $pool->internalAddGeneratedFile(hex2bin(
-            "0ab5010a0a6d7174742e70726f746f22560a0f53657276696365456e7665" .
-            "6c6f7065121b0a067061636b657418012001280b320b2e4d657368506163" .
-            "6b657412120a0a6368616e6e656c5f696418022001280912120a0a676174" .
-            "657761795f696418032001280942470a13636f6d2e6765656b7376696c6c" .
-            "652e6d657368420a4d51545450726f746f7348035a226769746875622e63" .
-            "6f6d2f6d6573687461737469632f676f2f67656e65726174656462067072" .
-            "6f746f33"
-        ));
+        $pool->internalAddGeneratedFile(
+            '
+Ì
+
+mqtt.proto"V
+ServiceEnvelope
+packet (2.MeshPacket
+
+channel_id (	
+
+gateway_id (	B^
+com.geeksville.meshB
+MQTTProtosHZ"github.com/meshtastic/go/generatedªMeshtastic.Protobufsbproto3'
+        , true);
 
         static::$is_initialized = true;
     }

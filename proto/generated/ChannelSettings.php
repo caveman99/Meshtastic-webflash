@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Full settings (center freq, spread factor, pre-shared secret key etc...)
  * needed to configure a radio for speaking on a particular channel This
  * information can be encoded as a QRcode/url so that other users can configure
@@ -33,14 +32,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class ChannelSettings extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Deprecated in favor of LoraConfig.channel_num
      *
      * Generated from protobuf field <code>uint32 channel_num = 1 [deprecated = true];</code>
+     * @deprecated
      */
-    private $channel_num = 0;
+    protected $channel_num = 0;
     /**
-     *
      * A simple pre-shared key for now for crypto.
      * Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256).
      * A special shorthand is used for 1 byte long psks.
@@ -54,9 +52,8 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>bytes psk = 2;</code>
      */
-    private $psk = '';
+    protected $psk = '';
     /**
-     *
      * A SHORT name that will be packed into the URL.
      * Less than 12 bytes.
      * Something for end users to call the channel
@@ -68,9 +65,8 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string name = 3;</code>
      */
-    private $name = '';
+    protected $name = '';
     /**
-     *
      * Used to construct a globally unique channel ID.
      * The full globally unique ID will be: "name.id" where ID is shown as base36.
      * Assuming that the number of meshtastic users is below 20K (true for a long time)
@@ -85,49 +81,95 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>fixed32 id = 4;</code>
      */
-    private $id = 0;
+    protected $id = 0;
     /**
-     *
      * If true, messages on the mesh will be sent to the *public* internet by any gateway ndoe
      *
      * Generated from protobuf field <code>bool uplink_enabled = 5;</code>
      */
-    private $uplink_enabled = false;
+    protected $uplink_enabled = false;
     /**
-     *
      * If true, messages seen on the internet will be forwarded to the local mesh.
      *
      * Generated from protobuf field <code>bool downlink_enabled = 6;</code>
      */
-    private $downlink_enabled = false;
+    protected $downlink_enabled = false;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $channel_num
+     *           Deprecated in favor of LoraConfig.channel_num
+     *     @type string $psk
+     *           A simple pre-shared key for now for crypto.
+     *           Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256).
+     *           A special shorthand is used for 1 byte long psks.
+     *           These psks should be treated as only minimally secure,
+     *           because they are listed in this source code.
+     *           Those bytes are mapped using the following scheme:
+     *           `0` = No crypto
+     *           `1` = The special "default" channel key: {0xd4, 0xf1, 0xbb, 0x3a, 0x20, 0x29, 0x07, 0x59, 0xf0, 0xbc, 0xff, 0xab, 0xcf, 0x4e, 0x69, 0xbf}
+     *           `2` through 10 = The default channel key, except with 1 through 9 added to the last byte.
+     *           Shown to user as simple1 through 10
+     *     @type string $name
+     *           A SHORT name that will be packed into the URL.
+     *           Less than 12 bytes.
+     *           Something for end users to call the channel
+     *           If this is the empty string it is assumed that this channel
+     *           is the special (minimally secure) "Default"channel.
+     *           In user interfaces it should be rendered as a local language translation of "X".
+     *           For channel_num hashing empty string will be treated as "X".
+     *           Where "X" is selected based on the English words listed above for ModemPreset
+     *     @type int $id
+     *           Used to construct a globally unique channel ID.
+     *           The full globally unique ID will be: "name.id" where ID is shown as base36.
+     *           Assuming that the number of meshtastic users is below 20K (true for a long time)
+     *           the chance of this 64 bit random number colliding with anyone else is super low.
+     *           And the penalty for collision is low as well, it just means that anyone trying to decrypt channel messages might need to
+     *           try multiple candidate channels.
+     *           Any time a non wire compatible change is made to a channel, this field should be regenerated.
+     *           There are a small number of 'special' globally known (and fairly) insecure standard channels.
+     *           Those channels do not have a numeric id included in the settings, but instead it is pulled from
+     *           a table of well known IDs.
+     *           (see Well Known Channels FIXME)
+     *     @type bool $uplink_enabled
+     *           If true, messages on the mesh will be sent to the *public* internet by any gateway ndoe
+     *     @type bool $downlink_enabled
+     *           If true, messages seen on the internet will be forwarded to the local mesh.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Channel::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Deprecated in favor of LoraConfig.channel_num
      *
      * Generated from protobuf field <code>uint32 channel_num = 1 [deprecated = true];</code>
      * @return int
+     * @deprecated
      */
     public function getChannelNum()
     {
+        @trigger_error('channel_num is deprecated.', E_USER_DEPRECATED);
         return $this->channel_num;
     }
 
     /**
-     *
      * Deprecated in favor of LoraConfig.channel_num
      *
      * Generated from protobuf field <code>uint32 channel_num = 1 [deprecated = true];</code>
      * @param int $var
      * @return $this
+     * @deprecated
      */
     public function setChannelNum($var)
     {
+        @trigger_error('channel_num is deprecated.', E_USER_DEPRECATED);
         GPBUtil::checkUint32($var);
         $this->channel_num = $var;
 
@@ -135,7 +177,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A simple pre-shared key for now for crypto.
      * Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256).
      * A special shorthand is used for 1 byte long psks.
@@ -156,7 +197,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A simple pre-shared key for now for crypto.
      * Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256).
      * A special shorthand is used for 1 byte long psks.
@@ -181,7 +221,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A SHORT name that will be packed into the URL.
      * Less than 12 bytes.
      * Something for end users to call the channel
@@ -200,7 +239,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A SHORT name that will be packed into the URL.
      * Less than 12 bytes.
      * Something for end users to call the channel
@@ -223,7 +261,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Used to construct a globally unique channel ID.
      * The full globally unique ID will be: "name.id" where ID is shown as base36.
      * Assuming that the number of meshtastic users is below 20K (true for a long time)
@@ -245,7 +282,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Used to construct a globally unique channel ID.
      * The full globally unique ID will be: "name.id" where ID is shown as base36.
      * Assuming that the number of meshtastic users is below 20K (true for a long time)
@@ -271,7 +307,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, messages on the mesh will be sent to the *public* internet by any gateway ndoe
      *
      * Generated from protobuf field <code>bool uplink_enabled = 5;</code>
@@ -283,7 +318,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, messages on the mesh will be sent to the *public* internet by any gateway ndoe
      *
      * Generated from protobuf field <code>bool uplink_enabled = 5;</code>
@@ -299,7 +333,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, messages seen on the internet will be forwarded to the local mesh.
      *
      * Generated from protobuf field <code>bool downlink_enabled = 6;</code>
@@ -311,7 +344,6 @@ class ChannelSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, messages seen on the internet will be forwarded to the local mesh.
      *
      * Generated from protobuf field <code>bool downlink_enabled = 6;</code>

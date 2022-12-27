@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Module Config
  *
  * Generated from protobuf message <code>ModuleConfig</code>
@@ -16,203 +15,279 @@ class ModuleConfig extends \Google\Protobuf\Internal\Message
 {
     protected $payload_variant;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \ModuleConfig\MQTTConfig $mqtt
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\SerialConfig $serial
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\ExternalNotificationConfig $external_notification
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\StoreForwardConfig $store_forward
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\RangeTestConfig $range_test
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\TelemetryConfig $telemetry
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\CannedMessageConfig $canned_message
+     *           TODO: REPLACE
+     *     @type \ModuleConfig\AudioConfig $audio
+     *           TODO: REPLACE
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\ModuleConfig::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.MQTTConfig mqtt = 1;</code>
-     * @return \ModuleConfig_MQTTConfig
+     * @return \ModuleConfig\MQTTConfig|null
      */
     public function getMqtt()
     {
         return $this->readOneof(1);
     }
 
+    public function hasMqtt()
+    {
+        return $this->hasOneof(1);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.MQTTConfig mqtt = 1;</code>
-     * @param \ModuleConfig_MQTTConfig $var
+     * @param \ModuleConfig\MQTTConfig $var
      * @return $this
      */
     public function setMqtt($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_MQTTConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\MQTTConfig::class);
         $this->writeOneof(1, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.SerialConfig serial = 2;</code>
-     * @return \ModuleConfig_SerialConfig
+     * @return \ModuleConfig\SerialConfig|null
      */
     public function getSerial()
     {
         return $this->readOneof(2);
     }
 
+    public function hasSerial()
+    {
+        return $this->hasOneof(2);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.SerialConfig serial = 2;</code>
-     * @param \ModuleConfig_SerialConfig $var
+     * @param \ModuleConfig\SerialConfig $var
      * @return $this
      */
     public function setSerial($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_SerialConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\SerialConfig::class);
         $this->writeOneof(2, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.ExternalNotificationConfig external_notification = 3;</code>
-     * @return \ModuleConfig_ExternalNotificationConfig
+     * @return \ModuleConfig\ExternalNotificationConfig|null
      */
     public function getExternalNotification()
     {
         return $this->readOneof(3);
     }
 
+    public function hasExternalNotification()
+    {
+        return $this->hasOneof(3);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.ExternalNotificationConfig external_notification = 3;</code>
-     * @param \ModuleConfig_ExternalNotificationConfig $var
+     * @param \ModuleConfig\ExternalNotificationConfig $var
      * @return $this
      */
     public function setExternalNotification($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_ExternalNotificationConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\ExternalNotificationConfig::class);
         $this->writeOneof(3, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.StoreForwardConfig store_forward = 4;</code>
-     * @return \ModuleConfig_StoreForwardConfig
+     * @return \ModuleConfig\StoreForwardConfig|null
      */
     public function getStoreForward()
     {
         return $this->readOneof(4);
     }
 
+    public function hasStoreForward()
+    {
+        return $this->hasOneof(4);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.StoreForwardConfig store_forward = 4;</code>
-     * @param \ModuleConfig_StoreForwardConfig $var
+     * @param \ModuleConfig\StoreForwardConfig $var
      * @return $this
      */
     public function setStoreForward($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_StoreForwardConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\StoreForwardConfig::class);
         $this->writeOneof(4, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.RangeTestConfig range_test = 5;</code>
-     * @return \ModuleConfig_RangeTestConfig
+     * @return \ModuleConfig\RangeTestConfig|null
      */
     public function getRangeTest()
     {
         return $this->readOneof(5);
     }
 
+    public function hasRangeTest()
+    {
+        return $this->hasOneof(5);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.RangeTestConfig range_test = 5;</code>
-     * @param \ModuleConfig_RangeTestConfig $var
+     * @param \ModuleConfig\RangeTestConfig $var
      * @return $this
      */
     public function setRangeTest($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_RangeTestConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\RangeTestConfig::class);
         $this->writeOneof(5, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.TelemetryConfig telemetry = 6;</code>
-     * @return \ModuleConfig_TelemetryConfig
+     * @return \ModuleConfig\TelemetryConfig|null
      */
     public function getTelemetry()
     {
         return $this->readOneof(6);
     }
 
+    public function hasTelemetry()
+    {
+        return $this->hasOneof(6);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.TelemetryConfig telemetry = 6;</code>
-     * @param \ModuleConfig_TelemetryConfig $var
+     * @param \ModuleConfig\TelemetryConfig $var
      * @return $this
      */
     public function setTelemetry($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_TelemetryConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\TelemetryConfig::class);
         $this->writeOneof(6, $var);
 
         return $this;
     }
 
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.CannedMessageConfig canned_message = 7;</code>
-     * @return \ModuleConfig_CannedMessageConfig
+     * @return \ModuleConfig\CannedMessageConfig|null
      */
     public function getCannedMessage()
     {
         return $this->readOneof(7);
     }
 
+    public function hasCannedMessage()
+    {
+        return $this->hasOneof(7);
+    }
+
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf field <code>.ModuleConfig.CannedMessageConfig canned_message = 7;</code>
-     * @param \ModuleConfig_CannedMessageConfig $var
+     * @param \ModuleConfig\CannedMessageConfig $var
      * @return $this
      */
     public function setCannedMessage($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_CannedMessageConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\CannedMessageConfig::class);
         $this->writeOneof(7, $var);
+
+        return $this;
+    }
+
+    /**
+     * TODO: REPLACE
+     *
+     * Generated from protobuf field <code>.ModuleConfig.AudioConfig audio = 8;</code>
+     * @return \ModuleConfig\AudioConfig|null
+     */
+    public function getAudio()
+    {
+        return $this->readOneof(8);
+    }
+
+    public function hasAudio()
+    {
+        return $this->hasOneof(8);
+    }
+
+    /**
+     * TODO: REPLACE
+     *
+     * Generated from protobuf field <code>.ModuleConfig.AudioConfig audio = 8;</code>
+     * @param \ModuleConfig\AudioConfig $var
+     * @return $this
+     */
+    public function setAudio($var)
+    {
+        GPBUtil::checkMessage($var, \ModuleConfig\AudioConfig::class);
+        $this->writeOneof(8, $var);
 
         return $this;
     }

@@ -3,89 +3,125 @@
 # source: telemetry.proto
 
 /**
- *
  * TODO: REPLACE
  *
- * Protobuf enum <code>TelemetrySensorType</code>
+ * Protobuf type <code>TelemetrySensorType</code>
  */
 class TelemetrySensorType
 {
     /**
-     *
      * No external telemetry sensor explicitly set
      *
      * Generated from protobuf enum <code>SENSOR_UNSET = 0;</code>
      */
     const SENSOR_UNSET = 0;
     /**
-     *
      * High accuracy temperature, pressure, humidity
      *
      * Generated from protobuf enum <code>BME280 = 1;</code>
      */
     const BME280 = 1;
     /**
-     *
      * High accuracy temperature, pressure, humidity, and air resistance
      *
      * Generated from protobuf enum <code>BME680 = 2;</code>
      */
     const BME680 = 2;
     /**
-     *
      * Very high accuracy temperature
      *
      * Generated from protobuf enum <code>MCP9808 = 3;</code>
      */
     const MCP9808 = 3;
     /**
-     *
      * Moderate accuracy current and voltage
      *
      * Generated from protobuf enum <code>INA260 = 4;</code>
      */
     const INA260 = 4;
     /**
-     *
      * Moderate accuracy current and voltage
      *
      * Generated from protobuf enum <code>INA219 = 5;</code>
      */
     const INA219 = 5;
     /**
-     *
      * High accuracy temperature and pressure
      *
      * Generated from protobuf enum <code>BMP280 = 6;</code>
      */
     const BMP280 = 6;
     /**
-     *
      * High accuracy temperature and humidity
      *
      * Generated from protobuf enum <code>SHTC3 = 7;</code>
      */
     const SHTC3 = 7;
     /**
-     *
      * High accuracy pressure
      *
      * Generated from protobuf enum <code>LPS22 = 8;</code>
      */
     const LPS22 = 8;
     /**
-     *
      * 3-Axis magnetic sensor
      *
      * Generated from protobuf enum <code>QMC6310 = 9;</code>
      */
     const QMC6310 = 9;
     /**
-     *
      * 6-Axis inertial measurement sensor
      *
      * Generated from protobuf enum <code>QMI8658 = 10;</code>
      */
     const QMI8658 = 10;
+    /**
+     * 3-Axis magnetic sensor
+     *
+     * Generated from protobuf enum <code>QMC5883L = 11;</code>
+     */
+    const QMC5883L = 11;
+    /**
+     * High accuracy temperature and humidity
+     *
+     * Generated from protobuf enum <code>SHT31 = 12;</code>
+     */
+    const SHT31 = 12;
+
+    private static $valueToName = [
+        self::SENSOR_UNSET => 'SENSOR_UNSET',
+        self::BME280 => 'BME280',
+        self::BME680 => 'BME680',
+        self::MCP9808 => 'MCP9808',
+        self::INA260 => 'INA260',
+        self::INA219 => 'INA219',
+        self::BMP280 => 'BMP280',
+        self::SHTC3 => 'SHTC3',
+        self::LPS22 => 'LPS22',
+        self::QMC6310 => 'QMC6310',
+        self::QMI8658 => 'QMI8658',
+        self::QMC5883L => 'QMC5883L',
+        self::SHT31 => 'SHT31',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

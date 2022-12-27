@@ -12,267 +12,384 @@ use Google\Protobuf\Internal\GPBUtil;
 class LocalModuleConfig extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The part of the config that is specific to the MQTT module
      *
      * Generated from protobuf field <code>.ModuleConfig.MQTTConfig mqtt = 1;</code>
      */
-    private $mqtt = null;
+    protected $mqtt = null;
     /**
-     *
      * The part of the config that is specific to the Serial module
      *
      * Generated from protobuf field <code>.ModuleConfig.SerialConfig serial = 2;</code>
      */
-    private $serial = null;
+    protected $serial = null;
     /**
-     *
      * The part of the config that is specific to the ExternalNotification module
      *
      * Generated from protobuf field <code>.ModuleConfig.ExternalNotificationConfig external_notification = 3;</code>
      */
-    private $external_notification = null;
+    protected $external_notification = null;
     /**
-     *
      * The part of the config that is specific to the Store & Forward module
      *
      * Generated from protobuf field <code>.ModuleConfig.StoreForwardConfig store_forward = 4;</code>
      */
-    private $store_forward = null;
+    protected $store_forward = null;
     /**
-     *
      * The part of the config that is specific to the RangeTest module
      *
      * Generated from protobuf field <code>.ModuleConfig.RangeTestConfig range_test = 5;</code>
      */
-    private $range_test = null;
+    protected $range_test = null;
     /**
-     *
      * The part of the config that is specific to the Telemetry module
      *
      * Generated from protobuf field <code>.ModuleConfig.TelemetryConfig telemetry = 6;</code>
      */
-    private $telemetry = null;
+    protected $telemetry = null;
     /**
-     *
      * The part of the config that is specific to the Canned Message module
      *
      * Generated from protobuf field <code>.ModuleConfig.CannedMessageConfig canned_message = 7;</code>
      */
-    private $canned_message = null;
+    protected $canned_message = null;
     /**
+     * The part of the config that is specific to the Audio module
      *
+     * Generated from protobuf field <code>.ModuleConfig.AudioConfig audio = 9;</code>
+     */
+    protected $audio = null;
+    /**
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
      *
      * Generated from protobuf field <code>uint32 version = 8;</code>
      */
-    private $version = 0;
+    protected $version = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \ModuleConfig\MQTTConfig $mqtt
+     *           The part of the config that is specific to the MQTT module
+     *     @type \ModuleConfig\SerialConfig $serial
+     *           The part of the config that is specific to the Serial module
+     *     @type \ModuleConfig\ExternalNotificationConfig $external_notification
+     *           The part of the config that is specific to the ExternalNotification module
+     *     @type \ModuleConfig\StoreForwardConfig $store_forward
+     *           The part of the config that is specific to the Store & Forward module
+     *     @type \ModuleConfig\RangeTestConfig $range_test
+     *           The part of the config that is specific to the RangeTest module
+     *     @type \ModuleConfig\TelemetryConfig $telemetry
+     *           The part of the config that is specific to the Telemetry module
+     *     @type \ModuleConfig\CannedMessageConfig $canned_message
+     *           The part of the config that is specific to the Canned Message module
+     *     @type \ModuleConfig\AudioConfig $audio
+     *           The part of the config that is specific to the Audio module
+     *     @type int $version
+     *           A version integer used to invalidate old save files when we make
+     *           incompatible changes This integer is set at build time and is private to
+     *           NodeDB.cpp in the device code.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Localonly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The part of the config that is specific to the MQTT module
      *
      * Generated from protobuf field <code>.ModuleConfig.MQTTConfig mqtt = 1;</code>
-     * @return \ModuleConfig_MQTTConfig
+     * @return \ModuleConfig\MQTTConfig|null
      */
     public function getMqtt()
     {
         return $this->mqtt;
     }
 
+    public function hasMqtt()
+    {
+        return isset($this->mqtt);
+    }
+
+    public function clearMqtt()
+    {
+        unset($this->mqtt);
+    }
+
     /**
-     *
      * The part of the config that is specific to the MQTT module
      *
      * Generated from protobuf field <code>.ModuleConfig.MQTTConfig mqtt = 1;</code>
-     * @param \ModuleConfig_MQTTConfig $var
+     * @param \ModuleConfig\MQTTConfig $var
      * @return $this
      */
     public function setMqtt($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_MQTTConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\MQTTConfig::class);
         $this->mqtt = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Serial module
      *
      * Generated from protobuf field <code>.ModuleConfig.SerialConfig serial = 2;</code>
-     * @return \ModuleConfig_SerialConfig
+     * @return \ModuleConfig\SerialConfig|null
      */
     public function getSerial()
     {
         return $this->serial;
     }
 
+    public function hasSerial()
+    {
+        return isset($this->serial);
+    }
+
+    public function clearSerial()
+    {
+        unset($this->serial);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Serial module
      *
      * Generated from protobuf field <code>.ModuleConfig.SerialConfig serial = 2;</code>
-     * @param \ModuleConfig_SerialConfig $var
+     * @param \ModuleConfig\SerialConfig $var
      * @return $this
      */
     public function setSerial($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_SerialConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\SerialConfig::class);
         $this->serial = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the ExternalNotification module
      *
      * Generated from protobuf field <code>.ModuleConfig.ExternalNotificationConfig external_notification = 3;</code>
-     * @return \ModuleConfig_ExternalNotificationConfig
+     * @return \ModuleConfig\ExternalNotificationConfig|null
      */
     public function getExternalNotification()
     {
         return $this->external_notification;
     }
 
+    public function hasExternalNotification()
+    {
+        return isset($this->external_notification);
+    }
+
+    public function clearExternalNotification()
+    {
+        unset($this->external_notification);
+    }
+
     /**
-     *
      * The part of the config that is specific to the ExternalNotification module
      *
      * Generated from protobuf field <code>.ModuleConfig.ExternalNotificationConfig external_notification = 3;</code>
-     * @param \ModuleConfig_ExternalNotificationConfig $var
+     * @param \ModuleConfig\ExternalNotificationConfig $var
      * @return $this
      */
     public function setExternalNotification($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_ExternalNotificationConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\ExternalNotificationConfig::class);
         $this->external_notification = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Store & Forward module
      *
      * Generated from protobuf field <code>.ModuleConfig.StoreForwardConfig store_forward = 4;</code>
-     * @return \ModuleConfig_StoreForwardConfig
+     * @return \ModuleConfig\StoreForwardConfig|null
      */
     public function getStoreForward()
     {
         return $this->store_forward;
     }
 
+    public function hasStoreForward()
+    {
+        return isset($this->store_forward);
+    }
+
+    public function clearStoreForward()
+    {
+        unset($this->store_forward);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Store & Forward module
      *
      * Generated from protobuf field <code>.ModuleConfig.StoreForwardConfig store_forward = 4;</code>
-     * @param \ModuleConfig_StoreForwardConfig $var
+     * @param \ModuleConfig\StoreForwardConfig $var
      * @return $this
      */
     public function setStoreForward($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_StoreForwardConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\StoreForwardConfig::class);
         $this->store_forward = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the RangeTest module
      *
      * Generated from protobuf field <code>.ModuleConfig.RangeTestConfig range_test = 5;</code>
-     * @return \ModuleConfig_RangeTestConfig
+     * @return \ModuleConfig\RangeTestConfig|null
      */
     public function getRangeTest()
     {
         return $this->range_test;
     }
 
+    public function hasRangeTest()
+    {
+        return isset($this->range_test);
+    }
+
+    public function clearRangeTest()
+    {
+        unset($this->range_test);
+    }
+
     /**
-     *
      * The part of the config that is specific to the RangeTest module
      *
      * Generated from protobuf field <code>.ModuleConfig.RangeTestConfig range_test = 5;</code>
-     * @param \ModuleConfig_RangeTestConfig $var
+     * @param \ModuleConfig\RangeTestConfig $var
      * @return $this
      */
     public function setRangeTest($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_RangeTestConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\RangeTestConfig::class);
         $this->range_test = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Telemetry module
      *
      * Generated from protobuf field <code>.ModuleConfig.TelemetryConfig telemetry = 6;</code>
-     * @return \ModuleConfig_TelemetryConfig
+     * @return \ModuleConfig\TelemetryConfig|null
      */
     public function getTelemetry()
     {
         return $this->telemetry;
     }
 
+    public function hasTelemetry()
+    {
+        return isset($this->telemetry);
+    }
+
+    public function clearTelemetry()
+    {
+        unset($this->telemetry);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Telemetry module
      *
      * Generated from protobuf field <code>.ModuleConfig.TelemetryConfig telemetry = 6;</code>
-     * @param \ModuleConfig_TelemetryConfig $var
+     * @param \ModuleConfig\TelemetryConfig $var
      * @return $this
      */
     public function setTelemetry($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_TelemetryConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\TelemetryConfig::class);
         $this->telemetry = $var;
 
         return $this;
     }
 
     /**
-     *
      * The part of the config that is specific to the Canned Message module
      *
      * Generated from protobuf field <code>.ModuleConfig.CannedMessageConfig canned_message = 7;</code>
-     * @return \ModuleConfig_CannedMessageConfig
+     * @return \ModuleConfig\CannedMessageConfig|null
      */
     public function getCannedMessage()
     {
         return $this->canned_message;
     }
 
+    public function hasCannedMessage()
+    {
+        return isset($this->canned_message);
+    }
+
+    public function clearCannedMessage()
+    {
+        unset($this->canned_message);
+    }
+
     /**
-     *
      * The part of the config that is specific to the Canned Message module
      *
      * Generated from protobuf field <code>.ModuleConfig.CannedMessageConfig canned_message = 7;</code>
-     * @param \ModuleConfig_CannedMessageConfig $var
+     * @param \ModuleConfig\CannedMessageConfig $var
      * @return $this
      */
     public function setCannedMessage($var)
     {
-        GPBUtil::checkMessage($var, \ModuleConfig_CannedMessageConfig::class);
+        GPBUtil::checkMessage($var, \ModuleConfig\CannedMessageConfig::class);
         $this->canned_message = $var;
 
         return $this;
     }
 
     /**
+     * The part of the config that is specific to the Audio module
      *
+     * Generated from protobuf field <code>.ModuleConfig.AudioConfig audio = 9;</code>
+     * @return \ModuleConfig\AudioConfig|null
+     */
+    public function getAudio()
+    {
+        return $this->audio;
+    }
+
+    public function hasAudio()
+    {
+        return isset($this->audio);
+    }
+
+    public function clearAudio()
+    {
+        unset($this->audio);
+    }
+
+    /**
+     * The part of the config that is specific to the Audio module
+     *
+     * Generated from protobuf field <code>.ModuleConfig.AudioConfig audio = 9;</code>
+     * @param \ModuleConfig\AudioConfig $var
+     * @return $this
+     */
+    public function setAudio($var)
+    {
+        GPBUtil::checkMessage($var, \ModuleConfig\AudioConfig::class);
+        $this->audio = $var;
+
+        return $this;
+    }
+
+    /**
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.
@@ -286,7 +403,6 @@ class LocalModuleConfig extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * A version integer used to invalidate old save files when we make
      * incompatible changes This integer is set at build time and is private to
      * NodeDB.cpp in the device code.

@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Canned message module configuration.
  *
  * Generated from protobuf message <code>CannedMessageModuleConfig</code>
@@ -15,20 +14,28 @@ use Google\Protobuf\Internal\GPBUtil;
 class CannedMessageModuleConfig extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Predefined messages for canned message module separated by '|' characters.
      *
      * Generated from protobuf field <code>string messages = 1;</code>
      */
-    private $messages = '';
+    protected $messages = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $messages
+     *           Predefined messages for canned message module separated by '|' characters.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Cannedmessages::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Predefined messages for canned message module separated by '|' characters.
      *
      * Generated from protobuf field <code>string messages = 1;</code>
@@ -40,7 +47,6 @@ class CannedMessageModuleConfig extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Predefined messages for canned message module separated by '|' characters.
      *
      * Generated from protobuf field <code>string messages = 1;</code>

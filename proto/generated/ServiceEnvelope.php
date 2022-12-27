@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * This message wraps a MeshPacket with extra metadata about the sender and how it arrived.
  *
  * Generated from protobuf message <code>ServiceEnvelope</code>
@@ -15,48 +14,69 @@ use Google\Protobuf\Internal\GPBUtil;
 class ServiceEnvelope extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * The (probably encrypted) packet
      *
      * Generated from protobuf field <code>.MeshPacket packet = 1;</code>
      */
-    private $packet = null;
+    protected $packet = null;
     /**
-     *
      * The global channel ID it was sent on
      *
      * Generated from protobuf field <code>string channel_id = 2;</code>
      */
-    private $channel_id = '';
+    protected $channel_id = '';
     /**
-     *
      * The sending gateway node ID. Can we use this to authenticate/prevent fake
      * nodeid impersonation for senders? - i.e. use gateway/mesh id (which is authenticated) + local node id as
      * the globally trusted nodenum
      *
      * Generated from protobuf field <code>string gateway_id = 3;</code>
      */
-    private $gateway_id = '';
+    protected $gateway_id = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \MeshPacket $packet
+     *           The (probably encrypted) packet
+     *     @type string $channel_id
+     *           The global channel ID it was sent on
+     *     @type string $gateway_id
+     *           The sending gateway node ID. Can we use this to authenticate/prevent fake
+     *           nodeid impersonation for senders? - i.e. use gateway/mesh id (which is authenticated) + local node id as
+     *           the globally trusted nodenum
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mqtt::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * The (probably encrypted) packet
      *
      * Generated from protobuf field <code>.MeshPacket packet = 1;</code>
-     * @return \MeshPacket
+     * @return \MeshPacket|null
      */
     public function getPacket()
     {
         return $this->packet;
     }
 
+    public function hasPacket()
+    {
+        return isset($this->packet);
+    }
+
+    public function clearPacket()
+    {
+        unset($this->packet);
+    }
+
     /**
-     *
      * The (probably encrypted) packet
      *
      * Generated from protobuf field <code>.MeshPacket packet = 1;</code>
@@ -72,7 +92,6 @@ class ServiceEnvelope extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The global channel ID it was sent on
      *
      * Generated from protobuf field <code>string channel_id = 2;</code>
@@ -84,7 +103,6 @@ class ServiceEnvelope extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The global channel ID it was sent on
      *
      * Generated from protobuf field <code>string channel_id = 2;</code>
@@ -100,7 +118,6 @@ class ServiceEnvelope extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The sending gateway node ID. Can we use this to authenticate/prevent fake
      * nodeid impersonation for senders? - i.e. use gateway/mesh id (which is authenticated) + local node id as
      * the globally trusted nodenum
@@ -114,7 +131,6 @@ class ServiceEnvelope extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * The sending gateway node ID. Can we use this to authenticate/prevent fake
      * nodeid impersonation for senders? - i.e. use gateway/mesh id (which is authenticated) + local node id as
      * the globally trusted nodenum

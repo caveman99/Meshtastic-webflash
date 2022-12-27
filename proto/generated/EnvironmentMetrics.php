@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Weather station or other environmental metrics
  *
  * Generated from protobuf message <code>EnvironmentMetrics</code>
@@ -15,55 +14,68 @@ use Google\Protobuf\Internal\GPBUtil;
 class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Temperature measured
      *
      * Generated from protobuf field <code>float temperature = 1;</code>
      */
-    private $temperature = 0.0;
+    protected $temperature = 0.0;
     /**
-     *
      * Relative humidity percent measured
      *
      * Generated from protobuf field <code>float relative_humidity = 2;</code>
      */
-    private $relative_humidity = 0.0;
+    protected $relative_humidity = 0.0;
     /**
-     *
      * Barometric pressure in hPA measured
      *
      * Generated from protobuf field <code>float barometric_pressure = 3;</code>
      */
-    private $barometric_pressure = 0.0;
+    protected $barometric_pressure = 0.0;
     /**
-     *
      * Gas resistance in mOhm measured
      *
      * Generated from protobuf field <code>float gas_resistance = 4;</code>
      */
-    private $gas_resistance = 0.0;
+    protected $gas_resistance = 0.0;
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 5;</code>
      */
-    private $voltage = 0.0;
+    protected $voltage = 0.0;
     /**
-     *
      * Current measured
      *
      * Generated from protobuf field <code>float current = 6;</code>
      */
-    private $current = 0.0;
+    protected $current = 0.0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type float $temperature
+     *           Temperature measured
+     *     @type float $relative_humidity
+     *           Relative humidity percent measured
+     *     @type float $barometric_pressure
+     *           Barometric pressure in hPA measured
+     *     @type float $gas_resistance
+     *           Gas resistance in mOhm measured
+     *     @type float $voltage
+     *           Voltage measured
+     *     @type float $current
+     *           Current measured
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Telemetry::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Temperature measured
      *
      * Generated from protobuf field <code>float temperature = 1;</code>
@@ -75,7 +87,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Temperature measured
      *
      * Generated from protobuf field <code>float temperature = 1;</code>
@@ -91,7 +102,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Relative humidity percent measured
      *
      * Generated from protobuf field <code>float relative_humidity = 2;</code>
@@ -103,7 +113,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Relative humidity percent measured
      *
      * Generated from protobuf field <code>float relative_humidity = 2;</code>
@@ -119,7 +128,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Barometric pressure in hPA measured
      *
      * Generated from protobuf field <code>float barometric_pressure = 3;</code>
@@ -131,7 +139,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Barometric pressure in hPA measured
      *
      * Generated from protobuf field <code>float barometric_pressure = 3;</code>
@@ -147,7 +154,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Gas resistance in mOhm measured
      *
      * Generated from protobuf field <code>float gas_resistance = 4;</code>
@@ -159,7 +165,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Gas resistance in mOhm measured
      *
      * Generated from protobuf field <code>float gas_resistance = 4;</code>
@@ -175,7 +180,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 5;</code>
@@ -187,7 +191,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Voltage measured
      *
      * Generated from protobuf field <code>float voltage = 5;</code>
@@ -203,7 +206,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Current measured
      *
      * Generated from protobuf field <code>float current = 6;</code>
@@ -215,7 +217,6 @@ class EnvironmentMetrics extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Current measured
      *
      * Generated from protobuf field <code>float current = 6;</code>

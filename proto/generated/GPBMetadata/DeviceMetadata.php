@@ -14,15 +14,19 @@ class DeviceMetadata
         if (static::$is_initialized == true) {
           return;
         }
-        $pool->internalAddGeneratedFile(hex2bin(
-            "0abc010a156465766963655f6d657461646174612e70726f746f22480a0e" .
-            "4465766963654d6574616461746112180a106669726d776172655f766572" .
-            "73696f6e180120012809121c0a146465766963655f73746174655f766572" .
-            "73696f6e18022001280d42510a13636f6d2e6765656b7376696c6c652e6d" .
-            "65736842144465766963654d6574616461746150726f746f7348035a2267" .
-            "69746875622e636f6d2f6d6573687461737469632f676f2f67656e657261" .
-            "746564620670726f746f33"
-        ));
+        $pool->internalAddGeneratedFile(
+            '
+¥
+device_metadata.proto"™
+DeviceMetadata
+firmware_version (	
+device_state_version (
+canShutdown (
+hasWifi (
+hasBluetooth (
+hasEthernet (Bh
+com.geeksville.meshBDeviceMetadataProtosHZ"github.com/meshtastic/go/generatedªMeshtastic.Protobufsbproto3'
+        , true);
 
         static::$is_initialized = true;
     }

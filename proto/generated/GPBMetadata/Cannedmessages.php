@@ -14,14 +14,14 @@ class Cannedmessages
         if (static::$is_initialized == true) {
           return;
         }
-        $pool->internalAddGeneratedFile(hex2bin(
-            "0aa5010a1463616e6e65646d657373616765732e70726f746f222d0a1943" .
-            "616e6e65644d6573736167654d6f64756c65436f6e66696712100a086d65" .
-            "73736167657318012001280942560a13636f6d2e6765656b7376696c6c65" .
-            "2e6d657368421943616e6e65644d657373616765436f6e66696750726f74" .
-            "6f7348035a226769746875622e636f6d2f6d6573687461737469632f676f" .
-            "2f67656e657261746564620670726f746f33"
-        ));
+        $pool->internalAddGeneratedFile(
+            '
+¼
+cannedmessages.proto"-
+CannedMessageModuleConfig
+messages (	Bm
+com.geeksville.meshBCannedMessageConfigProtosHZ"github.com/meshtastic/go/generatedªMeshtastic.Protobufsbproto3'
+        , true);
 
         static::$is_initialized = true;
     }

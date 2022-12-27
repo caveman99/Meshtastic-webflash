@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * An example app to show off the module system. This message is used for
  * REMOTE_HARDWARE_APP PortNums.
  * Also provides easy remote access to any GPIO.
@@ -23,35 +22,46 @@ use Google\Protobuf\Internal\GPBUtil;
 class HardwareMessage extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * What type of HardwareMessage is this?
      *
      * Generated from protobuf field <code>.HardwareMessage.Type type = 1;</code>
      */
-    private $type = 0;
+    protected $type = 0;
     /**
-     *
      * What gpios are we changing. Not used for all MessageTypes, see MessageType for details
      *
      * Generated from protobuf field <code>uint64 gpio_mask = 2;</code>
      */
-    private $gpio_mask = 0;
+    protected $gpio_mask = 0;
     /**
-     *
      * For gpios that were listed in gpio_mask as valid, what are the signal levels for those gpios.
      * Not used for all MessageTypes, see MessageType for details
      *
      * Generated from protobuf field <code>uint64 gpio_value = 3;</code>
      */
-    private $gpio_value = 0;
+    protected $gpio_value = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $type
+     *           What type of HardwareMessage is this?
+     *     @type int|string $gpio_mask
+     *           What gpios are we changing. Not used for all MessageTypes, see MessageType for details
+     *     @type int|string $gpio_value
+     *           For gpios that were listed in gpio_mask as valid, what are the signal levels for those gpios.
+     *           Not used for all MessageTypes, see MessageType for details
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\RemoteHardware::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * What type of HardwareMessage is this?
      *
      * Generated from protobuf field <code>.HardwareMessage.Type type = 1;</code>
@@ -63,7 +73,6 @@ class HardwareMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * What type of HardwareMessage is this?
      *
      * Generated from protobuf field <code>.HardwareMessage.Type type = 1;</code>
@@ -72,14 +81,13 @@ class HardwareMessage extends \Google\Protobuf\Internal\Message
      */
     public function setType($var)
     {
-        GPBUtil::checkEnum($var, \HardwareMessage_Type::class);
+        GPBUtil::checkEnum($var, \HardwareMessage\Type::class);
         $this->type = $var;
 
         return $this;
     }
 
     /**
-     *
      * What gpios are we changing. Not used for all MessageTypes, see MessageType for details
      *
      * Generated from protobuf field <code>uint64 gpio_mask = 2;</code>
@@ -91,7 +99,6 @@ class HardwareMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * What gpios are we changing. Not used for all MessageTypes, see MessageType for details
      *
      * Generated from protobuf field <code>uint64 gpio_mask = 2;</code>
@@ -107,7 +114,6 @@ class HardwareMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * For gpios that were listed in gpio_mask as valid, what are the signal levels for those gpios.
      * Not used for all MessageTypes, see MessageType for details
      *
@@ -120,7 +126,6 @@ class HardwareMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * For gpios that were listed in gpio_mask as valid, what are the signal levels for those gpios.
      * Not used for all MessageTypes, see MessageType for details
      *

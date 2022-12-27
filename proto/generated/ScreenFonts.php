@@ -3,33 +3,55 @@
 # source: deviceonly.proto
 
 /**
- *
  * TODO: REPLACE
  *
- * Protobuf enum <code>ScreenFonts</code>
+ * Protobuf type <code>ScreenFonts</code>
  */
 class ScreenFonts
 {
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf enum <code>FONT_SMALL = 0;</code>
      */
     const FONT_SMALL = 0;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf enum <code>FONT_MEDIUM = 1;</code>
      */
     const FONT_MEDIUM = 1;
     /**
-     *
      * TODO: REPLACE
      *
      * Generated from protobuf enum <code>FONT_LARGE = 2;</code>
      */
     const FONT_LARGE = 2;
+
+    private static $valueToName = [
+        self::FONT_SMALL => 'FONT_SMALL',
+        self::FONT_MEDIUM => 'FONT_MEDIUM',
+        self::FONT_LARGE => 'FONT_LARGE',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

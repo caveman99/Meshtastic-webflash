@@ -3,7 +3,6 @@
 # source: portnums.proto
 
 /**
- *
  * For any new 'apps' that run on the device or via sister apps on phones/PCs they should pick and use a
  * unique 'portnum' for their application.
  * If you are making a new app using meshtastic, please send in a pull request to add your 'portnum' to this
@@ -17,12 +16,11 @@
  * We have change to this 'portnum' based scheme for specifying app handlers for particular payloads.
  * This change is backwards compatible by treating the legacy OPAQUE/CLEAR_TEXT values identically.
  *
- * Protobuf enum <code>PortNum</code>
+ * Protobuf type <code>PortNum</code>
  */
 class PortNum
 {
     /**
-     *
      * Deprecated: do not use in new code (formerly called OPAQUE)
      * A message sent from a device outside of the mesh, in a form the mesh does not understand
      * NOTE: This must be 0, because it is documented in IMeshService.aidl to be so
@@ -31,7 +29,6 @@ class PortNum
      */
     const UNKNOWN_APP = 0;
     /**
-     *
      * A simple UTF-8 text message, which even the little micros in the mesh
      * can understand and show on their screen eventually in some circumstances
      * even signal might send messages in this form (see below)
@@ -40,7 +37,6 @@ class PortNum
      */
     const TEXT_MESSAGE_APP = 1;
     /**
-     *
      * Reserved for built-in GPIO/example app.
      * See remote_hardware.proto/HardwareMessage for details on the message sent/received to this port number
      *
@@ -48,7 +44,6 @@ class PortNum
      */
     const REMOTE_HARDWARE_APP = 2;
     /**
-     *
      * The built-in position messaging app.
      * Payload is a [Position](/docs/developers/protobufs/api#position) message
      *
@@ -56,7 +51,6 @@ class PortNum
      */
     const POSITION_APP = 3;
     /**
-     *
      * The built-in user info app.
      * Payload is a [User](/docs/developers/protobufs/api#user) message
      *
@@ -64,7 +58,6 @@ class PortNum
      */
     const NODEINFO_APP = 4;
     /**
-     *
      * Protocol control packets for mesh protocol use.
      * Payload is a [Routing](/docs/developers/protobufs/api#routing) message
      *
@@ -72,7 +65,6 @@ class PortNum
      */
     const ROUTING_APP = 5;
     /**
-     *
      * Admin control packets.
      * Payload is a [AdminMessage](/docs/developers/protobufs/api#adminmessage) message
      *
@@ -80,14 +72,12 @@ class PortNum
      */
     const ADMIN_APP = 6;
     /**
-     *
      * Compressed TEXT_MESSAGE payloads.
      *
      * Generated from protobuf enum <code>TEXT_MESSAGE_COMPRESSED_APP = 7;</code>
      */
     const TEXT_MESSAGE_COMPRESSED_APP = 7;
     /**
-     *
      * Waypoint payloads.
      * Payload is a [Waypoint](/docs/developers/protobufs/api#waypoint) message
      *
@@ -95,7 +85,13 @@ class PortNum
      */
     const WAYPOINT_APP = 8;
     /**
+     * Audio Payloads.
+     * Encapsulated codec2 packets. On 2.4 GHZ Bandwidths only for now
      *
+     * Generated from protobuf enum <code>AUDIO_APP = 9;</code>
+     */
+    const AUDIO_APP = 9;
+    /**
      * Provides a 'ping' service that replies to any packet it receives.
      * Also serves as a small example module.
      *
@@ -103,14 +99,12 @@ class PortNum
      */
     const REPLY_APP = 32;
     /**
-     *
      * Used for the python IP tunnel feature
      *
      * Generated from protobuf enum <code>IP_TUNNEL_APP = 33;</code>
      */
     const IP_TUNNEL_APP = 33;
     /**
-     *
      * Provides a hardware serial interface to send and receive from the Meshtastic network.
      * Connect to the RX/TX pins of a device with 38400 8N1. Packets received from the Meshtastic
      * network is forwarded to the RX pin while sending a packet to TX will go out to the Mesh network.
@@ -121,7 +115,6 @@ class PortNum
      */
     const SERIAL_APP = 64;
     /**
-     *
      * STORE_FORWARD_APP (Work in Progress)
      * Maintained by Jm Casler (MC Hamster) : jm&#64;casler.org
      *
@@ -129,14 +122,12 @@ class PortNum
      */
     const STORE_FORWARD_APP = 65;
     /**
-     *
      * Optional port for messages for the range test module.
      *
      * Generated from protobuf enum <code>RANGE_TEST_APP = 66;</code>
      */
     const RANGE_TEST_APP = 66;
     /**
-     *
      * Provides a format to send and receive telemetry data from the Meshtastic network.
      * Maintained by Charles Crossan (crossan007) : crossan007&#64;gmail.com
      *
@@ -144,7 +135,6 @@ class PortNum
      */
     const TELEMETRY_APP = 67;
     /**
-     *
      * Experimental tools for estimating node position without a GPS
      * Maintained by Github user a-f-G-U-C (a Meshtastic contributor)
      * Project files at https://github.com/a-f-G-U-C/Meshtastic-ZPS
@@ -153,7 +143,6 @@ class PortNum
      */
     const ZPS_APP = 68;
     /**
-     *
      * Used to let multiple instances of Linux native applications communicate 
      * as if they did using their LoRa chip.
      * Maintained by GitHub user GUVWAF. 
@@ -163,27 +152,76 @@ class PortNum
      */
     const SIMULATOR_APP = 69;
     /**
+     * Provides a traceroute functionality to show the route a packet towards
+     * a certain destination would take on the mesh.
      *
+     * Generated from protobuf enum <code>TRACEROUTE_APP = 70;</code>
+     */
+    const TRACEROUTE_APP = 70;
+    /**
      * Private applications should use portnums >= 256.
      * To simplify initial development and testing you can use "PRIVATE_APP"
-     * in your code without needing to rebuild protobuf files (via [regen-protos.sh](https://github.com/meshtastic/Meshtastic-device/blob/master/bin/regen-protos.sh))
+     * in your code without needing to rebuild protobuf files (via [regen-protos.sh](https://github.com/meshtastic/firmware/blob/master/bin/regen-protos.sh))
      *
      * Generated from protobuf enum <code>PRIVATE_APP = 256;</code>
      */
     const PRIVATE_APP = 256;
     /**
-     *
      * ATAK Forwarder Module https://github.com/paulmandal/atak-forwarder
      *
      * Generated from protobuf enum <code>ATAK_FORWARDER = 257;</code>
      */
     const ATAK_FORWARDER = 257;
     /**
-     *
      * Currently we limit port nums to no higher than this value
      *
      * Generated from protobuf enum <code>MAX = 511;</code>
      */
     const MAX = 511;
+
+    private static $valueToName = [
+        self::UNKNOWN_APP => 'UNKNOWN_APP',
+        self::TEXT_MESSAGE_APP => 'TEXT_MESSAGE_APP',
+        self::REMOTE_HARDWARE_APP => 'REMOTE_HARDWARE_APP',
+        self::POSITION_APP => 'POSITION_APP',
+        self::NODEINFO_APP => 'NODEINFO_APP',
+        self::ROUTING_APP => 'ROUTING_APP',
+        self::ADMIN_APP => 'ADMIN_APP',
+        self::TEXT_MESSAGE_COMPRESSED_APP => 'TEXT_MESSAGE_COMPRESSED_APP',
+        self::WAYPOINT_APP => 'WAYPOINT_APP',
+        self::AUDIO_APP => 'AUDIO_APP',
+        self::REPLY_APP => 'REPLY_APP',
+        self::IP_TUNNEL_APP => 'IP_TUNNEL_APP',
+        self::SERIAL_APP => 'SERIAL_APP',
+        self::STORE_FORWARD_APP => 'STORE_FORWARD_APP',
+        self::RANGE_TEST_APP => 'RANGE_TEST_APP',
+        self::TELEMETRY_APP => 'TELEMETRY_APP',
+        self::ZPS_APP => 'ZPS_APP',
+        self::SIMULATOR_APP => 'SIMULATOR_APP',
+        self::TRACEROUTE_APP => 'TRACEROUTE_APP',
+        self::PRIVATE_APP => 'PRIVATE_APP',
+        self::ATAK_FORWARDER => 'ATAK_FORWARDER',
+        self::MAX => 'MAX',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

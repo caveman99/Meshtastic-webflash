@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * This is the most compact possible representation for a set of channels.
  * It includes only one PRIMARY channel (which must be first) and
  * any SECONDARY channels.
@@ -19,27 +18,36 @@ use Google\Protobuf\Internal\GPBUtil;
 class ChannelSet extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Channel list with settings
      *
      * Generated from protobuf field <code>repeated .ChannelSettings settings = 1;</code>
      */
     private $settings;
     /**
-     *
      * LoRa config
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora_config = 2;</code>
      */
-    private $lora_config = null;
+    protected $lora_config = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type array<\ChannelSettings>|\Google\Protobuf\Internal\RepeatedField $settings
+     *           Channel list with settings
+     *     @type \Config\LoRaConfig $lora_config
+     *           LoRa config
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Apponly::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Channel list with settings
      *
      * Generated from protobuf field <code>repeated .ChannelSettings settings = 1;</code>
@@ -51,11 +59,10 @@ class ChannelSet extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Channel list with settings
      *
      * Generated from protobuf field <code>repeated .ChannelSettings settings = 1;</code>
-     * @param \ChannelSettings[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @param array<\ChannelSettings>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setSettings($var)
@@ -67,28 +74,36 @@ class ChannelSet extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * LoRa config
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora_config = 2;</code>
-     * @return \Config_LoRaConfig
+     * @return \Config\LoRaConfig|null
      */
     public function getLoraConfig()
     {
         return $this->lora_config;
     }
 
+    public function hasLoraConfig()
+    {
+        return isset($this->lora_config);
+    }
+
+    public function clearLoraConfig()
+    {
+        unset($this->lora_config);
+    }
+
     /**
-     *
      * LoRa config
      *
      * Generated from protobuf field <code>.Config.LoRaConfig lora_config = 2;</code>
-     * @param \Config_LoRaConfig $var
+     * @param \Config\LoRaConfig $var
      * @return $this
      */
     public function setLoraConfig($var)
     {
-        GPBUtil::checkMessage($var, \Config_LoRaConfig::class);
+        GPBUtil::checkMessage($var, \Config\LoRaConfig::class);
         $this->lora_config = $var;
 
         return $this;

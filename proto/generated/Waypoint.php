@@ -7,7 +7,6 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- *
  * Waypoint message, used to share arbitrary locations across the mesh
  *
  * Generated from protobuf message <code>Waypoint</code>
@@ -15,62 +14,78 @@ use Google\Protobuf\Internal\GPBUtil;
 class Waypoint extends \Google\Protobuf\Internal\Message
 {
     /**
-     *
      * Id of the waypoint
      *
      * Generated from protobuf field <code>uint32 id = 1;</code>
      */
-    private $id = 0;
+    protected $id = 0;
     /**
-     *
      * latitude_i
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 2;</code>
      */
-    private $latitude_i = 0;
+    protected $latitude_i = 0;
     /**
-     *
      * longitude_i
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 3;</code>
      */
-    private $longitude_i = 0;
+    protected $longitude_i = 0;
     /**
-     *
      * Time the waypoint is to expire (epoch)
      *
      * Generated from protobuf field <code>uint32 expire = 4;</code>
      */
-    private $expire = 0;
+    protected $expire = 0;
     /**
-     *
      * If true, only allow the original sender to update the waypoint.
      *
      * Generated from protobuf field <code>bool locked = 5;</code>
      */
-    private $locked = false;
+    protected $locked = false;
     /**
-     *
      * Name of the waypoint - max 30 chars
      *
      * Generated from protobuf field <code>string name = 6;</code>
      */
-    private $name = '';
+    protected $name = '';
     /**
      **
      * Description of the waypoint - max 100 chars
      *
      * Generated from protobuf field <code>string description = 7;</code>
      */
-    private $description = '';
+    protected $description = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $id
+     *           Id of the waypoint
+     *     @type int $latitude_i
+     *           latitude_i
+     *     @type int $longitude_i
+     *           longitude_i
+     *     @type int $expire
+     *           Time the waypoint is to expire (epoch)
+     *     @type bool $locked
+     *           If true, only allow the original sender to update the waypoint.
+     *     @type string $name
+     *           Name of the waypoint - max 30 chars
+     *     @type string $description
+     *          *
+     *           Description of the waypoint - max 100 chars
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Mesh::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     *
      * Id of the waypoint
      *
      * Generated from protobuf field <code>uint32 id = 1;</code>
@@ -82,7 +97,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Id of the waypoint
      *
      * Generated from protobuf field <code>uint32 id = 1;</code>
@@ -98,7 +112,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * latitude_i
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 2;</code>
@@ -110,7 +123,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * latitude_i
      *
      * Generated from protobuf field <code>sfixed32 latitude_i = 2;</code>
@@ -126,7 +138,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * longitude_i
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 3;</code>
@@ -138,7 +149,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * longitude_i
      *
      * Generated from protobuf field <code>sfixed32 longitude_i = 3;</code>
@@ -154,7 +164,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Time the waypoint is to expire (epoch)
      *
      * Generated from protobuf field <code>uint32 expire = 4;</code>
@@ -166,7 +175,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Time the waypoint is to expire (epoch)
      *
      * Generated from protobuf field <code>uint32 expire = 4;</code>
@@ -182,7 +190,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, only allow the original sender to update the waypoint.
      *
      * Generated from protobuf field <code>bool locked = 5;</code>
@@ -194,7 +201,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * If true, only allow the original sender to update the waypoint.
      *
      * Generated from protobuf field <code>bool locked = 5;</code>
@@ -210,7 +216,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Name of the waypoint - max 30 chars
      *
      * Generated from protobuf field <code>string name = 6;</code>
@@ -222,7 +227,6 @@ class Waypoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *
      * Name of the waypoint - max 30 chars
      *
      * Generated from protobuf field <code>string name = 6;</code>
