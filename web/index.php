@@ -55,7 +55,9 @@ foreach ($files as $file){
 rsort($versions);
 
 foreach ($versions as $version){
-    $ver .= '<option value="' . $version . '" /> ' . ucfirst($version) . (($display[$version]['prerelease'] == 1) ? " alpha" : " beta") . '</option>';
+    if (strpos($display[$version]['name'], "(Revoked)") === false) {
+        $ver .= '<option value="' . $version . '" /> ' . ucfirst($version) . (($display[$version]['prerelease'] == 1) ? " alpha" : " beta") . '</option>';
+    }
 }
 
 $template=strtr(file_get_contents('index.tpl.html'), array('###radios###'=>$radios, '###versions###'=>$ver));
