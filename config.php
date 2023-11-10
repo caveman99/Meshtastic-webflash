@@ -1,30 +1,30 @@
 <?php
 
-$chipFamily = ['rak11200' => 'ESP32',
-'tbeam-s3-core' => 'ESP32-S3',
-'tbeam' => 'ESP32',
-'tbeam0_7' => 'ESP32',
-'tlora-t3s3-v1' => 'ESP32-S3',
-'tlora-v2-1-1_6' => 'ESP32',
-'tlora-v2' => 'ESP32',
-'tlora_v1_3' => 'ESP32',
-'tlora-v1' => 'ESP32',
-'heltec-v3' => 'ESP32-S3',
-'heltec-wsl-v3' => 'ESP32-S3',
-'heltec-v2_1' => 'ESP32',
-'heltec-v2_0' => 'ESP32',
-'heltec-v1' => 'ESP32',
-'nano-g1-explorer' => 'ESP32',
-'nano-g1' => 'ESP32',
-'station-g1' => 'ESP32',
-'meshtastic-diy-v1' => 'ESP32',
-'meshtastic-dr-dev' => 'ESP32',
-'m5stack-core' => 'ESP32',
-'m5stack-coreink' => 'ESP32',
-'rak11200' => 'ESP32',
-'heltec-wireless-tracker' => 'ESP32-S3',
-'heltec-wireless-paper' => 'ESP32-S3',
-'t-watch-s3' => 'ESP32-S3',
-'t-deck' => 'ESP32-S3'
-];
+// get device JSON every hour only
+if (!file_exists(__DIR__ . '/cache/device.json') || filemtime(__DIR__ . '/cache/device.json') < time() - 3600) {
+    $device = file_get_contents('https://api.meshtastic.org/resource/deviceHardware');
+    file_put_contents(__DIR__ . '/cache/device.json', $device);
+}
+// decode it
+$hardware = json_decode(file_get_contents(__DIR__ . '/cache/device.json'), TRUE);
 
+// get releases JSON every hour only
+if (!file_exists(__DIR__ . '/cache/releases.json') || filemtime(__DIR__ . '/cache/releases.json') < time() - 3600) {
+    $releases = file_get_contents('https://api.meshtastic.org/github/firmware/list');
+    file_put_contents(__DIR__ . '/cache/releases.json', $releases);
+}
+$json = json_decode(file_get_contents(__DIR__ . '/cache/releases.json'), TRUE);
+
+// construct old ChipFamily Array
+foreach ($hardware as $key => $device) {
+    // remove non-ESP platforms
+    if (stripos($device['architecture'], 'ESP') === false) {
+        unset($hardware[$key]);
+    }else{
+        $chipFamily[$device['platformioTarget']] = strtoupper($device['architecture']);
+        if ($device['activelySupported'] == FALSE) {
+            $device['displayName'] .= ' (unsupported)';
+        }
+        $radios[$device['activelySupported']] .= '<option value="' . $device['platformioTarget'] . '" /> ' . $device['displayName'] . '</option>';
+    }
+}

@@ -1,10 +1,14 @@
 <?php
+
 header("content-type: application/json");
 
 $t=filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
 $v=filter_input(INPUT_GET, 'v', FILTER_SANITIZE_STRING);
 $u=filter_input(INPUT_GET, 'u', FILTER_SANITIZE_NUMBER_INT);
-$v2=substr($v,1);
+
+$v2=preg_replace('/^pr[0-9]+-/', '', $v); // subtract "prXXXX-"
+$v2=preg_replace('/^firmware-/', '', $v2); // subtract "firmware-"
+
 if(!file_exists('firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin')) {
   $v2=substr($v,1) . "-d";
 }
