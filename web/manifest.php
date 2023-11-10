@@ -5,6 +5,13 @@ $t=filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
 $v=filter_input(INPUT_GET, 'v', FILTER_SANITIZE_STRING);
 $u=filter_input(INPUT_GET, 'u', FILTER_SANITIZE_NUMBER_INT);
 $v2=substr($v,1);
+if(!file_exists('firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin')) {
+  $v2=substr($v,1) . "-d";
+}
+if(!file_exists('firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin')) {
+  // replace underscores with dots
+  $t = str_replace('_', '.', $t);
+}
 
 require_once realpath(__DIR__ . '/..') . '/config.php';
 
@@ -40,7 +47,7 @@ if (file_exists('firmware/' . $v . '/system-info.bin')) {
         "chipFamily": "' . $chipFamily[$t] . '",
         "parts": [
           { "path": "firmware/' . $v . '/firmware-' . $t . '-' . $v2 . '.bin", "offset": 0 },
-          { "path": "firmware/' . $v . '/bleota.bin", "offset": 2490368 },
+          { "path": "firmware/' . $v . '/' . (($chipFamily[$t] == 'ESP32') ? 'bleota.bin' : 'bleota-s3.bin') . '", "offset": 2490368 },
           { "path": "firmware/' . $v . '/littlefs-' . $v2 . '.bin", "offset": 3145728 }
         ]
       }
