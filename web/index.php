@@ -19,14 +19,7 @@ foreach ($json['releases'] as $state => $entry) {
         
         $all_firmware[$pos] = $fileName;
         $all_states[$pos] = $state;
-        $outputPath = 'firmware/' . $zipFileName;
         
-        if (!file_exists($outputPath)){
-            file_put_contents($outputPath, file_get_contents($downloadURL));
-        }
-        if (!is_dir($outputPath)) {
-            exec('unzip ' . $outputPath . ' -d firmware/' . $fileName . '/');
-        }
         $pos+=1;
     }
 }
@@ -41,35 +34,13 @@ foreach ($json['pullRequests'] as $value){
 	$downloadURL = $value['zip_url'];  //http url
 
 	$zipFileName = str_replace('?raw=true', '', basename($downloadURL));   // filename.zip
-	
 	$fileName = str_replace('.zip','',$zipFileName);  // filename
 	
 	$all_firmware[$pos] = $fileName;
     $all_states[$pos] = 'pr';
-	$outputPath = 'firmware/' . $zipFileName;
-	
-	if (!file_exists($outputPath)){
-		file_put_contents($outputPath, file_get_contents($downloadURL));
-	}
-	if (!is_dir($outputPath)) {
-    	exec('unzip ' . $outputPath . ' -d firmware/' . $fileName . '/');
-    }
 
 	$pos+=1;
 }
-
-// iterate firmware dir and erase folders that are not in the releases
-$files = scandir(__DIR__  . '/firmware/');
-foreach ($files as $file){
-	if  (!in_array ($file, $all_firmware) && is_dir(__DIR__  . '/firmware/' . $file)){
-		exec('rm -rf ' . __DIR__  . '/firmware/' . $file);
-	}
-	
-	if  (!in_array ($file, $all_firmware) && is_file(__DIR__  . '/firmware/' . $file . '.zip')){
-		unlink(__DIR__  . '/firmware/' . $file . '.zip');
-	}	
-}
-
 
 // Add all options to dropdown
 

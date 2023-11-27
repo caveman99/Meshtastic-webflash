@@ -1,1 +1,4 @@
 /vendor/*
+/web/firmware/
+/cache/*
+trunk

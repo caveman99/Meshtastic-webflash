@@ -1,6 +1,7 @@
 {
     "require": {
-        "google/protobuf": "^3.21"
+    "google/protobuf": "^3.21",
+    "crunzphp/crunz": "^3.4"
     },
     "autoload": {
         "psr-4": {
