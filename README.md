@@ -2,6 +2,8 @@
 
 Interim PHP code for meshtastic web flasher
 
+**NOTE: This has been superseeded by https://github.com/meshtastic/web-flasher**
+
 - clone this into a directory on a linux host, e.g. `/opt/flasher` - it's advised to use `git clone --recurse-submodules`
 - run composer install
 - run `git submodule update --init` if you haven't cloned the submodule already
